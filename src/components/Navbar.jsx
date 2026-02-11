@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, ShoppingCart, User, Explore, Search } from 'lucide-react'
+import { Menu, X, ShoppingCart, User, Search, Compass } from 'lucide-react'
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
