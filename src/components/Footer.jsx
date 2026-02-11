@@ -10,10 +10,10 @@ const Footer = () => {
                     <div className="col-span-1 md:col-span-1">
                         <Link to="/" className="flex items-center gap-2 mb-8">
                             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
-                                <span className="material-icons text-white">explore</span>
+                                <span className="material-icons text-white">terrain</span>
                             </div>
                             <span className="text-2xl font-bold tracking-tight uppercase">
-                                La Paz <span className="text-primary">Travel</span>
+                                Aventura <span className="text-primary">Bolivia</span>
                             </span>
                         </Link>
                         <p className="text-slate-400 mb-8 leading-relaxed">

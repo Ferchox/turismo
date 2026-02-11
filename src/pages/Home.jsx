@@ -11,8 +11,8 @@ const Home = () => {
             <section className="relative h-screen flex items-center justify-center">
                 <div className="absolute inset-0 z-0">
                     <img
-                        src="https://images.unsplash.com/photo-1596401057106-f7627447295d?q=80&w=2070&auto=format&fit=crop"
-                        alt="Illimani La Paz"
+                        src="/images/fondoLaPaz.jpeg"
+                        alt="La Paz Skyline"
                         className="w-full h-full object-cover scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-background-light dark:to-background-dark"></div>
@@ -25,14 +25,14 @@ const Home = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <span className="bg-primary/20 backdrop-blur-md text-primary font-bold px-4 py-2 rounded-full text-sm uppercase tracking-widest mb-6 inline-block">
-                            Explora lo extraordinario
+                            La aventura te espera
                         </span>
                         <h1 className="text-6xl md:text-8xl font-black text-white mb-8 leading-tight">
-                            Siente la Magia de <br />
-                            <span className="text-primary italic">La Paz</span>
+                            Descubre lo mejor <br />
+                            de <span className="text-primary italic">Bolivia</span>
                         </h1>
                         <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto font-medium leading-relaxed drop-shadow-lg">
-                            Vive la experiencia en la capital administrativa más alta del mundo, donde las tradiciones ancestrales se encuentran con paisajes montañosos impresionantes.
+                            Desde el espejo infinito de Uyuni hasta la selvas del Amazonas. Explora el país más diverso del corazón de Sudamérica.
                         </p>
 
                         <div className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-6 rounded-2xl shadow-2xl flex flex-col md:flex-row gap-6 items-center max-w-4xl mx-auto group">
@@ -42,7 +42,7 @@ const Home = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="¿A dónde vas?"
+                                    placeholder="¿A qué departamento vas?"
                                     className="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white font-bold text-lg placeholder:text-slate-300"
                                 />
                             </div>
@@ -53,7 +53,7 @@ const Home = () => {
                                 </label>
                                 <input
                                     type="text"
-                                    placeholder="Agregar fechas"
+                                    placeholder="Temporada ideal"
                                     className="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white font-bold text-lg placeholder:text-slate-300"
                                 />
                             </div>
@@ -66,7 +66,7 @@ const Home = () => {
                 </div>
 
                 <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-2 text-white/50 text-sm animate-bounce cursor-pointer">
-                    <span>Desliza para descubrir</span>
+                    <span>Explora las regiones</span>
                     <ArrowRight className="rotate-90" size={16} />
                 </div>
             </section>
@@ -75,10 +75,10 @@ const Home = () => {
             <section className="max-w-7xl mx-auto px-6 -mt-20 relative z-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
                     {[
-                        { icon: 'landscape', label: 'Naturaleza', color: 'bg-emerald-500' },
-                        { icon: 'apartment', label: 'Vida Urbana', color: 'bg-blue-500' },
-                        { icon: 'restaurant', label: 'Gastronomía', color: 'bg-orange-500' },
-                        { icon: 'history_edu', label: 'Cultura', color: 'bg-purple-500' },
+                        { icon: 'landscape', label: 'Altiplano', color: 'bg-slate-500' },
+                        { icon: 'park', label: 'Amazonía', color: 'bg-emerald-500' },
+                        { icon: 'water', label: 'Valles', color: 'bg-blue-500' },
+                        { icon: 'temple_hindu', label: 'Ciudades', color: 'bg-purple-500' },
                     ].map((cat, i) => (
                         <motion.div
                             key={i}
@@ -124,7 +124,7 @@ const Home = () => {
                                 />
                                 <div className="absolute top-6 left-6 flex gap-2">
                                     <span className="bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black uppercase shadow-sm">
-                                        {dest.category}
+                                        {dest.department}
                                     </span>
                                 </div>
                                 <div className="absolute bottom-0 left-0 w-full p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300 bg-gradient-to-t from-black/80 to-transparent">
@@ -135,7 +135,7 @@ const Home = () => {
                             </div>
                             <div className="p-8">
                                 <div className="flex justify-between items-start mb-4">
-                                    <h3 className="text-2xl font-black group-hover:text-primary transition-colors">{dest.name}</h3>
+                                    <h3 className="text-2xl font-black group-hover:text-primary transition-colors line-clamp-1">{dest.name}</h3>
                                     <div className="flex items-center gap-1 text-primary">
                                         <span className="material-icons text-sm">star</span>
                                         <span className="font-bold">{dest.rating}</span>
@@ -163,7 +163,7 @@ const Home = () => {
             <section className="relative h-[600px] flex items-center justify-center py-20">
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1549419163-9524e9956417?q=80&w=1974&auto=format&fit=crop"
+                        src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?q=80&w=1974&auto=format&fit=crop"
                         alt="Video Background"
                         className="w-full h-full object-cover"
                     />
@@ -178,7 +178,7 @@ const Home = () => {
                         <PlayCircle size={48} className="text-slate-900 group-hover:scale-125 transition-transform" />
                     </motion.button>
                     <h2 className="text-4xl md:text-6xl font-black text-white mb-6">Un viaje para el alma</h2>
-                    <p className="text-xl text-white/80 font-medium">Mira el tráiler oficial y descubre por qué La Paz es el destino #1 en Bolivia.</p>
+                    <p className="text-xl text-white/80 font-medium">Bolivia es el secreto mejor guardado de Sudamérica. Mira nuestra guía visual y sorpréndete.</p>
                 </div>
             </section>
 
@@ -189,36 +189,36 @@ const Home = () => {
                         <div className="absolute -top-10 -left-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
                         <div className="grid grid-cols-2 gap-4">
                             <img
-                                src="https://images.unsplash.com/photo-1647209144415-3d4949ec369a?q=80&w=1964&auto=format&fit=crop"
-                                alt="La Paz 1"
+                                src="/images/LaPazTeleferico.jpeg"
+                                alt="Modernidad y Vistas"
                                 className="rounded-3xl h-80 object-cover mt-12 animate-float"
                             />
                             <img
-                                src="https://images.unsplash.com/photo-1596401057633-540702df7959?q=80&w=2070&auto=format&fit=crop"
-                                alt="La Paz 2"
-                                className="rounded-3xl h-80 object-cover"
+                                src="/images/LaPazFondo3NOche.jpeg"
+                                alt="La Paz de Noche"
+                                className="rounded-3xl h-80 object-cover shadow-2xl"
                             />
                         </div>
                     </div>
                     <div>
-                        <span className="text-primary font-black uppercase tracking-[0.3em] text-xs mb-4 block">Experiencia única</span>
-                        <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight">¿Por qué visitar la <br /> <span className="text-primary">Ciudad del Cielo?</span></h2>
+                        <span className="text-primary font-black uppercase tracking-[0.3em] text-xs mb-4 block">Corazón de Sudamérica</span>
+                        <h2 className="text-4xl md:text-6xl font-black mb-10 leading-tight">¿Por qué viajar por <br /> <span className="text-primary">Toda Bolivia?</span></h2>
 
                         <div className="space-y-10">
                             {[
                                 {
-                                    title: 'Topografía Única',
-                                    desc: 'Construida en una cuenca gigante, la altitud única de la ciudad ofrece vistas que literalmente te quitarán el aliento.',
+                                    title: 'Diversidad Geográfica',
+                                    desc: 'Desde la cordillera de los Andes hasta las tierras bajas tropicales, Bolivia ofrece todos los climas del mundo en un solo país.',
                                     icon: 'landscape'
                                 },
                                 {
-                                    title: 'Fusión Cultural',
-                                    desc: 'Desde la vestimenta tradicional de las Cholitas hasta la arquitectura moderna, sé testigo de una vibrante mezcla.',
+                                    title: 'Ancestralidad Viva',
+                                    desc: 'Sé testigo de culturas milenarias que mantienen sus tradiciones, idiomas y costumbres intactas.',
                                     icon: 'auto_awesome'
                                 },
                                 {
-                                    title: 'Aventura Moderna',
-                                    desc: 'Viaja en el sistema de teleféricos más largo del mundo y disfruta de actividades de alta adrenalina.',
+                                    title: 'Aventura Real',
+                                    desc: 'Destinos auténticos, fuera de las rutas comerciales tradicionales, para viajeros que buscan experiencias genuinas.',
                                     icon: 'bolt'
                                 },
                             ].map((item, i) => (

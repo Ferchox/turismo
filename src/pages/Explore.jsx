@@ -24,8 +24,8 @@ const Explore = () => {
         <div className="pt-32 pb-20 bg-background-light dark:bg-background-dark min-h-screen">
             <div className="max-w-7xl mx-auto px-6">
                 <header className="mb-12">
-                    <h1 className="text-5xl font-black mb-4">Explora La Paz</h1>
-                    <p className="text-slate-500 text-lg font-medium">Descubre destinos únicos en todo el departamento</p>
+                    <h1 className="text-5xl font-black mb-4">Explora Bolivia</h1>
+                    <p className="text-slate-500 text-lg font-medium">Descubre destinos únicos en los 9 departamentos</p>
                 </header>
 
                 <div className="flex flex-col lg:flex-row gap-12">
@@ -52,8 +52,8 @@ const Explore = () => {
                                             key={cat}
                                             onClick={() => setSelectedCategory(cat)}
                                             className={`text-left px-4 py-3 rounded-xl transition-all font-bold ${selectedCategory === cat
-                                                    ? 'bg-primary text-slate-900 shadow-lg shadow-primary/20'
-                                                    : 'hover:bg-primary/5 text-slate-600 dark:text-slate-400'
+                                                ? 'bg-primary text-slate-900 shadow-lg shadow-primary/20'
+                                                : 'hover:bg-primary/5 text-slate-600 dark:text-slate-400'
                                                 }`}
                                         >
                                             {cat}

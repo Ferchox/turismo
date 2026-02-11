@@ -29,11 +29,11 @@ const Navbar = () => {
                 <div className="flex items-center gap-10">
                     <Link to="/" className="flex items-center gap-2 group">
                         <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
-                            <span className="material-icons text-white">explore</span>
+                            <span className="material-icons text-white">terrain</span>
                         </div>
                         <span className={`text-xl font-bold tracking-tight uppercase ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-white'
                             }`}>
-                            La Paz <span className="text-primary">Travel</span>
+                            Aventura <span className="text-primary">Bolivia</span>
                         </span>
                     </Link>
 
