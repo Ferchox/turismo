@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Paquetes Turísticos y Ofertas | La Paz Explorer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .masonry-grid {
+            column-count: 3;
+            column-gap: 1.5rem;
+        }
+
+        @media (max-width: 1024px) {
+            .masonry-grid {
+                column-count: 2;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .masonry-grid {
+                column-count: 1;
+            }
+        }
+
+        .masonry-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+</head>
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased">
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-icons text-white">explore</span>
+                </div>
+                <span class="text-xl font-bold tracking-tight">LA PAZ <span class="text-primary">EXPLORER</span></span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-semibold">
+                <a class="hover:text-primary transition-colors" href="#">Destinos</a>
+                <a class="text-primary underline underline-offset-8" href="#">Paquetes</a>
+                <a class="hover:text-primary transition-colors" href="#">Experiencias</a>
+                <a class="hover:text-primary transition-colors" href="#">Hoteles</a>
+            </div>
+            <div class="flex items-center gap-4">
+                <button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+                    <span class="material-icons">search</span>
+                </button>
+                <button
+                    class="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 rounded-full font-bold shadow-lg shadow-primary/20 transition-all flex items-center gap-2">
+                    <span class="material-icons text-sm">person</span>
+                    Iniciar Sesión
+                </button>
+            </div>
+        </div>
+    </nav>
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-end gap-6 border-b border-primary/10 pb-10">
+                <div class="max-w-2xl">
+                    <h1 class="text-5xl font-extrabold mb-4 leading-tight">Experiencias en <span class="text-primary">La
+                            Paz</span></h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">Ahorra hasta un 20% combinando tus estancias
+                        en hoteles boutique con nuestros tours guiados exclusivos. Aventuras seleccionadas desde los
+                        picos de los Andes hasta el corazón de la ciudad.</p>
+                </div>
+                <div
+                    class="bg-white dark:bg-slate-900 p-2 rounded-xl border border-primary/20 shadow-xl flex items-center gap-4 group">
+                    <div class="bg-primary/10 p-3 rounded-lg text-primary">
+                        <span class="material-icons">auto_awesome</span>
+                    </div>
+                    <div class="pr-4">
+                        <p class="text-sm font-bold">Hecho a tu medida</p>
+                        <button
+                            class="text-primary font-extrabold flex items-center gap-1 group-hover:gap-2 transition-all">
+                            CREA TU PROPIO PAQUETE <span class="material-icons text-sm">arrow_forward</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="flex flex-col lg:flex-row gap-10">
+            <aside class="w-full lg:w-72 flex-shrink-0">
+                <div class="sticky top-28 space-y-8">
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Tipo de Experiencia
+                        </h3>
+                        <div class="space-y-2">
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg bg-primary/10 border border-primary/20 cursor-pointer">
+                                <input checked="" class="rounded text-primary focus:ring-primary" type="checkbox" />
+                                <span class="font-medium text-primary">Todos los Paquetes</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors cursor-pointer border border-transparent">
+                                <input class="rounded text-primary focus:ring-primary" type="checkbox" />
+                                <span class="font-medium">Aventura</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors cursor-pointer border border-transparent">
+                                <input class="rounded text-primary focus:ring-primary" type="checkbox" />
+                                <span class="font-medium">Cultural</span>
+                            </label>
+                            <label
+                                class="flex items-center gap-3 p-3 rounded-lg hover:bg-white dark:hover:bg-slate-800 transition-colors cursor-pointer border border-transparent">
+                                <input class="rounded text-primary focus:ring-primary" type="checkbox" />
+                                <span class="font-medium">Estancia de Lujo</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-slate-400 mb-4">Región</h3>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-3 p-2 cursor-pointer">
+                                <input class="text-primary focus:ring-primary" name="region" type="radio" />
+                                <span class="text-sm font-medium">Centro Histórico La Paz</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-2 cursor-pointer">
+                                <input class="text-primary focus:ring-primary" name="region" type="radio" />
+                                <span class="text-sm font-medium">Valle de la Luna</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-2 cursor-pointer">
+                                <input class="text-primary focus:ring-primary" name="region" type="radio" />
+                                <span class="text-sm font-medium">Lago Titicaca</span>
+                            </label>
+                            <label class="flex items-center gap-3 p-2 cursor-pointer">
+                                <input class="text-primary focus:ring-primary" name="region" type="radio" />
+                                <span class="text-sm font-medium">Región de los Yungas</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="bg-primary/5 p-6 rounded-xl border border-primary/10">
+                        <span class="material-icons text-primary mb-2">eco</span>
+                        <h4 class="font-bold text-sm mb-1">Turismo Responsable</h4>
+                        <p class="text-xs text-slate-500 leading-relaxed">Nuestros paquetes priorizan los negocios
+                            locales y las prácticas sostenibles en La Paz.</p>
+                    </div>
+                </div>
+            </aside>
+            <div class="flex-grow">
+                <div class="masonry-grid">
+                    <div class="masonry-item group cursor-pointer">
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all hover:shadow-2xl hover:-translate-y-1">
+                            <img class="w-full h-64 object-cover"
+                                data-alt="Los edificios coloridos y teleféricos de La Paz"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFTwMxYf5JQK1aS7VmoQHfEL3ocOKnxSrCNNP-MEz73yWpA6WNorgt19AWyLdXpOS_wTnq51WPv11JIa5pXKdy4M3R2uWUKqq7jkvFV2J9PFiXxwcBwS6EvItckz4QWA4x1st_hJhx7Zr6i25UQ2dMUnC1SYDp1vj2vBQBQ4-iYQDNpydQkR9JY3zdPanKukyopBxdCylDR3aMw4rypUWfGAykP8jmXzxXhqLuufR9GqSEhPJNjzjubZsqkHX-NtnT7IR-U48fPqY" />
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Aventura</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                                <span class="material-icons text-[12px]">schedule</span> 3 Días
+                            </div>
+                            <div class="p-6">
+                                <div class="flex gap-2 mb-3">
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">Hotel</span>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">2
+                                        Tours</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Explorador
+                                    Urbano</h3>
+                                <p class="text-sm text-slate-500 mb-4 line-clamp-2">Tour en Teleférico, lucha libre de
+                                    Cholitas y estancia en el icónico Stannum Boutique Hotel.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span
+                                        class="bg-slate-100 dark:bg-slate-800 text-[11px] px-2 py-1 rounded font-medium">Teleférico</span>
+                                    <span
+                                        class="bg-slate-100 dark:bg-slate-800 text-[11px] px-2 py-1 rounded font-medium">Mercado
+                                        de Brujas</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <div>
+                                        <span class="text-xs text-slate-400">Desde</span>
+                                        <div class="text-2xl font-black text-primary">$349<span
+                                                class="text-sm font-normal text-slate-400">/pers</span></div>
+                                    </div>
+                                    <button
+                                        class="bg-primary/10 hover:bg-primary hover:text-white text-primary p-2 rounded-lg transition-all">
+                                        <span class="material-icons">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masonry-item group cursor-pointer">
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all hover:shadow-2xl hover:-translate-y-1">
+                            <img class="w-full h-[450px] object-cover"
+                                data-alt="Formaciones rocosas del Valle de la Luna cerca de La Paz"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZIw-ZqKu3fM-p2ol6niHZjT8hBcZL6754FCfZq9cMt2Sn9LdUb7a7CGqDzx3EMGks8QtawYhCsTNoLPZoMber4mGCJAlfmpvueTzhhOpjsIHp4ZdgSGruigDFNX19HbwwLcVp-bBCAZt7kx5f4QSxcJ_nMQ84zWbjBMwxGTkdixPnKez2dNxYc2IldLs3BOb7S7mHhWKAU0ehQQ5A1u8CISb-QL8YZ3kHfSsfZyt0QHrwX0OZKsr3t8KU1MI4TzDK8wkAIHAxrmo" />
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Paisaje</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                                <span class="material-icons text-[12px]">schedule</span> 2 Días
+                            </div>
+                            <div class="p-6">
+                                <div class="flex gap-2 mb-3">
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">Hotel</span>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">1
+                                        Tour</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Escape al
+                                    Valle de la Luna</h3>
+                                <p class="text-sm text-slate-500 mb-4">Escápate a los paisajes lunares del Valle de la
+                                    Luna con una estancia en un lodge de montaña de lujo.</p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span
+                                        class="bg-slate-100 dark:bg-slate-800 text-[11px] px-2 py-1 rounded font-medium">Valle
+                                        de la Luna</span>
+                                    <span
+                                        class="bg-slate-100 dark:bg-slate-800 text-[11px] px-2 py-1 rounded font-medium">Observación
+                                        de Estrellas</span>
+                                </div>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <div>
+                                        <span class="text-xs text-slate-400">Desde</span>
+                                        <div class="text-2xl font-black text-primary">$285<span
+                                                class="text-sm font-normal text-slate-400">/pers</span></div>
+                                    </div>
+                                    <button
+                                        class="bg-primary/10 hover:bg-primary hover:text-white text-primary p-2 rounded-lg transition-all">
+                                        <span class="material-icons">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masonry-item group cursor-pointer">
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all hover:shadow-2xl hover:-translate-y-1">
+                            <img class="w-full h-72 object-cover" data-alt="Lago Titicaca al atardecer"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDRfuR2iqoB_sa7RkDtb9OnOuF8olg3d92sBTDE1kMFeq02QyYK2ncvhhFIqMniB-OBEaiRfK7vIWp9c2uzlghiUU0gcTGJWxmziqBMeBvBWGYdmOID0rc0kLewHM2yBiNU9mSwl7W4eLMGPi2TW0f7TSSS0hQtQHEJWS95K6_RSRu54hHd-oQ64e4xAFozpZHV3g-zr_fdIda1Mbnib9ytfVacwvg_-zXDUXbgbBbKnErLsGYWpkDhbAcpJFxeewmcO3kCRzpZVLY" />
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Lujo</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                                <span class="material-icons text-[12px]">schedule</span> 4 Días
+                            </div>
+                            <div class="p-6">
+                                <div class="flex gap-2 mb-3">
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">Lodge</span>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">Botes</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Aguas
+                                    Sagradas del Titicaca</h3>
+                                <p class="text-sm text-slate-500 mb-4 line-clamp-2">Tours en bote privado a las islas
+                                    del Sol y la Luna con alojamiento premium a orillas del lago.</p>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <div>
+                                        <span class="text-xs text-slate-400">Desde</span>
+                                        <div class="text-2xl font-black text-primary">$510<span
+                                                class="text-sm font-normal text-slate-400">/pers</span></div>
+                                    </div>
+                                    <button
+                                        class="bg-primary/10 hover:bg-primary hover:text-white text-primary p-2 rounded-lg transition-all">
+                                        <span class="material-icons">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masonry-item group cursor-pointer">
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all hover:shadow-2xl hover:-translate-y-1">
+                            <div class="bg-primary/20 h-40 flex items-center justify-center">
+                                <span class="material-icons text-primary text-5xl opacity-50">directions_bike</span>
+                            </div>
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Adrenalina</div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Camino de
+                                    la Muerte</h3>
+                                <p class="text-sm text-slate-500 mb-4">El tour definitivo de descenso en bicicleta más
+                                    una noche de recuperación en una villa en la jungla.</p>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <div>
+                                        <span class="text-xs text-slate-400">Desde</span>
+                                        <div class="text-2xl font-black text-primary">$195<span
+                                                class="text-sm font-normal text-slate-400">/pers</span></div>
+                                    </div>
+                                    <button
+                                        class="bg-primary/10 hover:bg-primary hover:text-white text-primary p-2 rounded-lg transition-all">
+                                        <span class="material-icons">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masonry-item group cursor-pointer">
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all hover:shadow-2xl hover:-translate-y-1">
+                            <img class="w-full h-80 object-cover" data-alt="Vista del monte Illimani sobre La Paz"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDob00be2FiYtugycEWrxyPCusixNtfg7WIdZBiwUyzDOeqtx-jLX4mPuxqIiCkrf6HVUt3Ld9A5Zeae2lwE4f9O_Zs9ey5AqAbdHnF_1h-yJyolO1wmusrCBDJ_Y_u-oO3sATBeLYRpU9yRxZ3229-p-4VfPln7XWEnxTbCnbXvJvgykaf8FLQqcrQl37ow3R_rUJOb0y8MUXYR1on4SzqZ11Zrt0k-OIs9e92tW7LEkWzm1e9Wr-X2OGgRu0KwFIzOO38oulUmLM" />
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Trekking</div>
+                            <div
+                                class="absolute top-4 right-4 bg-black/50 backdrop-blur-md text-white text-[10px] font-bold px-3 py-1 rounded-full flex items-center gap-1">
+                                <span class="material-icons text-[12px]">schedule</span> 5 Días
+                            </div>
+                            <div class="p-6">
+                                <div class="flex gap-2 mb-3">
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">Campo
+                                        Base</span>
+                                    <span
+                                        class="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2 py-0.5 border border-slate-200 dark:border-slate-700 rounded">Equipo
+                                        Completo</span>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Trek
+                                    Condoriri Bundle</h3>
+                                <p class="text-sm text-slate-500 mb-4 line-clamp-2">Senderismo de altura a través de
+                                    lagunas glaciares con guías de montaña especializados.</p>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <div>
+                                        <span class="text-xs text-slate-400">Desde</span>
+                                        <div class="text-2xl font-black text-primary">$620<span
+                                                class="text-sm font-normal text-slate-400">/pers</span></div>
+                                    </div>
+                                    <button
+                                        class="bg-primary/10 hover:bg-primary hover:text-white text-primary p-2 rounded-lg transition-all">
+                                        <span class="material-icons">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="masonry-item group cursor-pointer">
+                        <div
+                            class="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 transition-all hover:shadow-2xl hover:-translate-y-1">
+                            <img class="w-full h-56 object-cover"
+                                data-alt="Mercado tradicional en Bolivia con textiles coloridos"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkZTuQ13-GBRHofdGqJm9gN4gCp5PNAzUdbGaXCnehOP27Wd4WvfSq6mnGuIiOllv41Zgz37nbxlombSOImPVtiC3p0W2nNwNWDwviBOz2t0JXWcQ4ExcrepfLSB7f9anD4cFXjLeDKuw0V-RaLwzc86-Avgm6O0R32GTZjFX20vaOS0PnpE-6iAveCCYVkbAyMK15XOdsRDDWUktnuI7Gyedeprq_XWsVVkbXZedJYrSpewZC00_gFPlU13sT2AoACeHw9ZeBJVk" />
+                            <div
+                                class="absolute top-4 left-4 bg-primary text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
+                                Patrimonio</div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Tiwanaku y
+                                    Raíces de Ciudad</h3>
+                                <p class="text-sm text-slate-500 mb-4 line-clamp-2">Ruinas milenarias y mercados
+                                    modernos, incluye todos los traslados y alojamiento boutique.</p>
+                                <div
+                                    class="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
+                                    <div>
+                                        <span class="text-xs text-slate-400">Desde</span>
+                                        <div class="text-2xl font-black text-primary">$215<span
+                                                class="text-sm font-normal text-slate-400">/pers</span></div>
+                                    </div>
+                                    <button
+                                        class="bg-primary/10 hover:bg-primary hover:text-white text-primary p-2 rounded-lg transition-all">
+                                        <span class="material-icons">add_shopping_cart</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 text-center">
+                    <button
+                        class="px-8 py-4 bg-white dark:bg-slate-900 border border-primary/20 rounded-full font-bold hover:bg-primary/5 transition-colors text-slate-700 dark:text-slate-200 flex items-center gap-3 mx-auto">
+                        Ver más paquetes
+                        <span class="material-icons">expand_more</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <section class="max-w-7xl mx-auto px-6 mb-24">
+        <div class="relative h-[400px] rounded-3xl overflow-hidden group">
+            <div
+                class="absolute inset-0 bg-gradient-to-r from-background-dark via-background-dark/40 to-transparent z-10">
+            </div>
+            <div class="absolute inset-0 z-0">
+                <div class="w-full h-full bg-slate-200" data-location="La Paz, Bolivia">
+                    <img class="w-full h-full object-cover"
+                        data-alt="Representación del mapa de la región de La Paz, Bolivia"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuATCbor8BkDVwasYmcEOORKx1qo-UiH1jbKqGZitTKq4INBJf0R5ibog7B3zwU-1VZrnamDr_bSU5RtsnYWPLEDvq8F3WKa21_HYjN69Fn5Nc19LfipCW1RHQ7-JGXO56t4ndzmZKxziiiOwiY6duCTYme-N9HncXOOY3DRIrZszorGgtPIps8ErTJI-UoEcOHQSSUCJZxTOAq4wpSEg5-RXUk272-OVigzCg1vIGMbXI94t6uFo3oaSa-oaFj8Bs_FHHM-_PZQ_Og" />
+                </div>
+            </div>
+            <div class="relative z-20 h-full flex flex-col justify-center px-12 max-w-xl">
+                <span class="text-primary font-bold uppercase tracking-[0.2em] text-sm mb-4">Explorador
+                    Interactivo</span>
+                <h2 class="text-4xl font-bold text-white mb-6">Descubre paquetes por barrio</h2>
+                <p class="text-slate-200 mb-8 leading-relaxed">Usa nuestro mapa interactivo para encontrar experiencias
+                    combinadas centradas en tu zona favorita de la ciudad.</p>
+                <button
+                    class="bg-primary text-white w-fit px-8 py-4 rounded-full font-bold shadow-xl shadow-primary/20 hover:scale-105 transition-transform flex items-center gap-2">
+                    <span class="material-icons">map</span>
+                    Abrir Mapa Interactivo
+                </button>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-white dark:bg-slate-900 border-t border-primary/10 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <div class="flex items-center gap-2 mb-6">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+                            <span class="material-icons text-white text-sm">explore</span>
+                        </div>
+                        <span class="text-lg font-bold">LA PAZ</span>
+                    </div>
+                    <p class="text-sm text-slate-500 leading-relaxed mb-6">Redefiniendo los viajes de altura con
+                        paquetes integrados y experiencia local. Tu puerta de entrada a los Andes.</p>
+                    <div class="flex gap-4">
+                        <div
+                            class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+                            <span class="material-icons text-sm">facebook</span>
+                        </div>
+                        <div
+                            class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary cursor-pointer hover:bg-primary hover:text-white transition-all">
+                            <span class="material-icons text-sm">camera_alt</span>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Planea tu Viaje</h4>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-primary" href="#">Destinos</a></li>
+                        <li><a class="hover:text-primary" href="#">Constructor Personalizado</a></li>
+                        <li><a class="hover:text-primary" href="#">Guías de Viaje</a></li>
+                        <li><a class="hover:text-primary" href="#">Información de Seguridad</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Enlaces Rápidos</h4>
+                    <ul class="space-y-4 text-sm text-slate-500">
+                        <li><a class="hover:text-primary" href="#">Hoteles Asociados</a></li>
+                        <li><a class="hover:text-primary" href="#">Operadores Turísticos</a></li>
+                        <li><a class="hover:text-primary" href="#">Reservas Grupales</a></li>
+                        <li><a class="hover:text-primary" href="#">Viajes Corporativos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-6">Boletín</h4>
+                    <p class="text-sm text-slate-500 mb-4">Recibe las mejores ofertas directamente en tu correo.</p>
+                    <div class="flex gap-2">
+                        <input
+                            class="bg-background-light dark:bg-slate-800 border-none rounded-lg text-sm w-full focus:ring-primary"
+                            placeholder="Tu correo electrónico" type="email" />
+                        <button class="bg-primary p-2 rounded-lg text-white">
+                            <span class="material-icons">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="pt-8 border-t border-slate-100 dark:border-slate-800 text-center text-xs text-slate-400">
+                © 2024 La Paz Explorer Tourism. Todos los derechos reservados. Operador Turístico Boliviano Registrado.
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

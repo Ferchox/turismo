@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Explorar Destinos en La Paz | Portal Turístico</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "neutral-primary": "#1a2e20",
+                        "neutral-secondary": "#4a5a4e",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-neutral-primary dark:text-gray-100 min-h-screen flex flex-col">
+    <nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex items-center gap-2">
+                    <div class="bg-primary p-2 rounded-lg">
+                        <span class="material-icons text-white">explore</span>
+                    </div>
+                    <span class="text-xl font-bold tracking-tight text-neutral-primary dark:text-white">Visit<span
+                            class="text-primary">LaPaz</span></span>
+                </div>
+                <div class="hidden md:flex flex-1 max-w-md mx-8">
+                    <div class="relative w-full">
+                        <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="material-icons text-neutral-secondary text-sm">search</span>
+                        </span>
+                        <input
+                            class="block w-full pl-10 pr-3 py-2 border-none bg-primary/5 focus:ring-2 focus:ring-primary rounded-lg text-sm"
+                            placeholder="Buscar destinos, actividades..." type="text" />
+                    </div>
+                </div>
+                <div class="flex items-center gap-6">
+                    <div class="hidden sm:flex items-center gap-2 text-sm font-medium">
+                        <span class="material-icons text-primary">language</span>
+                        <span>ES / BOB</span>
+                    </div>
+                    <button
+                        class="bg-primary/10 hover:bg-primary/20 text-neutral-primary font-semibold px-4 py-2 rounded-lg transition-colors flex items-center gap-2">
+                        <span class="material-icons text-sm">person</span>
+                        <span>Iniciar Sesión</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
+        <div class="mb-8">
+            <h1 class="text-4xl font-bold text-neutral-primary dark:text-white mb-2">Explorar La Paz</h1>
+            <p class="text-neutral-secondary dark:text-gray-400">Descubre 42 destinos únicos en todo el departamento de
+                La Paz</p>
+        </div>
+        <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="w-full lg:w-64 space-y-8 flex-shrink-0">
+                <div class="bg-white dark:bg-neutral-primary/20 p-6 rounded-xl border border-primary/10">
+                    <div class="flex items-center justify-between mb-6">
+                        <h3 class="font-bold text-lg">Filtros</h3>
+                        <button class="text-xs text-primary font-semibold uppercase tracking-wider">Limpiar
+                            Todo</button>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3 flex items-center justify-between">
+                            Filtrar por región
+                            <span class="material-icons text-sm">expand_more</span>
+                        </h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input checked=""
+                                    class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Altiplano</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Yungas / Amazonía</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Valles</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Cordillera</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <h4 class="font-semibold mb-3">Clima</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <button
+                                class="px-3 py-1 rounded-full border border-primary/20 text-xs hover:bg-primary/10 transition-colors">Frío</button>
+                            <button
+                                class="px-3 py-1 rounded-full bg-primary text-white text-xs font-medium">Templado</button>
+                            <button
+                                class="px-3 py-1 rounded-full border border-primary/20 text-xs hover:bg-primary/10 transition-colors">Tropical</button>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-3">Actividad</h4>
+                        <div class="space-y-2">
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Trekking</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input checked=""
+                                    class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Aventura</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Cultural</span>
+                            </label>
+                            <label class="flex items-center gap-2 text-sm cursor-pointer group">
+                                <input class="rounded text-primary focus:ring-primary border-primary/20 bg-transparent"
+                                    type="checkbox" />
+                                <span class="group-hover:text-primary transition-colors">Gastronómico</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="relative overflow-hidden rounded-xl bg-neutral-primary p-6 text-white h-48 flex flex-col justify-end">
+                    <img alt="Lago Titicaca" class="absolute inset-0 object-cover opacity-50"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1-zlZblNvY_qnl18ZnVrFOcKAQrCneCCjSXtzlCWDCgjLvxut7A8pzqkJlclHkp5s19GskN2xegPLpCd3qjRVy1wgFL2gfSW0ukPVsslOYPcnBQytLJmci6WGYc2ptVBiD35MpR1254N2q4t-yIIDdMo1V2ctH2n8fTKk9628dsw4LwnlD-_a7yo2gHmWO8Bufcs0SbrSv0S4-j1kEZ77aCX2oKf8L98475rSR-5oJSjBGKX6ELPJt4L4rw1pasDubX0YpWAo8tY" />
+                    <div class="relative z-10">
+                        <p class="text-xs font-bold text-primary uppercase mb-1">Tours Guiados</p>
+                        <h4 class="text-lg font-bold leading-tight">Explora el sagrado Lago Titicaca</h4>
+                    </div>
+                </div>
+            </aside>
+            <section class="flex-1">
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div
+                        class="group bg-white dark:bg-neutral-primary/20 rounded-xl overflow-hidden border border-primary/5 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img alt="Valle de la Luna"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK9sZCiieJqxxc94hvKZ-Od8ELx6ZqfPPVleMtL_nL178IXUM1SmMKRU2Oyv8PHEPP6Wwj1189HR2lOtzu7R_9jjHEObnAcZmsF9Kz8pKHlrBI-ZTa21gHuk22yJyXCohjhmwqAtpz-sYLNImXgaNT90c_dIda_vu7IuDAFP-TdMGXOz8xtiqv12FuUH6yBInDhAf7tO4YJrXPawMDH15RNCVqu6XvAfQ-OeL2rhHWTDt9v4BQUHGMulm8EIm_HxFWHn_-m0uqmrs" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-neutral-primary shadow-sm">
+                                $25 / Día
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div
+                                class="flex items-center gap-1 text-[10px] font-bold text-primary uppercase mb-2 tracking-widest">
+                                <span>La Paz</span>
+                                <span class="material-icons text-[10px]">chevron_right</span>
+                                <span>Mallasa</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Valle de la
+                                Luna</h3>
+                            <p class="text-neutral-secondary dark:text-gray-400 text-sm line-clamp-2 mb-4">Paisaje
+                                desértico único con miles de agujas y profundos cráteres formados por la erosión.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <span class="material-icons text-primary text-base">sunny</span>
+                                    <span>Templado</span>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-primary/90 text-white p-2 rounded-lg transition-colors">
+                                    <span class="material-icons">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white dark:bg-neutral-primary/20 rounded-xl overflow-hidden border border-primary/5 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img alt="Coroico"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3e1cEf-RLLDEUqWrsKF3OR-lA_2otgDXlnJIYb_SsLYB-qcGesgGqnXgJUmyhjQq4A3JN1YjyGZG2LSMqPyPgSIbZ2g_Ex9p_SO30e5kipDrv7CfTSyaHnJfPFMvUeaERxuNXlin_za_du84tJ2cerTraeqzvIbIlfaA1XBLyB7U9cgxFAX4AAOCE6C5ImBjNHXG498pBcFpwSlxFXb8s4rIfBALtQnaKaCH-dDpR2bI3Lqxslzc9WQ1qfDGIZmXvKxH0tZH5QYs" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-neutral-primary shadow-sm">
+                                $45 / Día
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div
+                                class="flex items-center gap-1 text-[10px] font-bold text-primary uppercase mb-2 tracking-widest">
+                                <span>La Paz</span>
+                                <span class="material-icons text-[10px]">chevron_right</span>
+                                <span>Yungas</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Pueblo de
+                                Coroico</h3>
+                            <p class="text-neutral-secondary dark:text-gray-400 text-sm line-clamp-2 mb-4">Un oasis
+                                tropical al borde de las montañas, famoso por sus plantaciones de café y cítricos.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <span class="material-icons text-primary text-base">beach_access</span>
+                                    <span>Tropical</span>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-primary/90 text-white p-2 rounded-lg transition-colors">
+                                    <span class="material-icons">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white dark:bg-neutral-primary/20 rounded-xl overflow-hidden border border-primary/5 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img alt="Isla del Sol"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTjweIwrDdAyi23EoyavVL1a4CJD5mMdsrO6i_Sww90OWLeRjR9RdWPLaGxth_sgCW5TjYVpXhb3mwIirs_Ts4X-d_EjUciHKyx_iAwYF_Dl_b-VgQo5aU6TkveW-xU7cv7dkD9KWErm9jIeJ0h9yvmIcuwQfZk8Ru-7b_4QyRh4XhhJZhVmnpKlNcWD3JwoY_HtBeECpEEcf45g-NcPBDSNdNwa68B-teyNUaa1kkGK2Gjj-gZgj5IhtRgRoTlMecODQInGHQpjM" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-neutral-primary shadow-sm">
+                                $60 / Día
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div
+                                class="flex items-center gap-1 text-[10px] font-bold text-primary uppercase mb-2 tracking-widest">
+                                <span>La Paz</span>
+                                <span class="material-icons text-[10px]">chevron_right</span>
+                                <span>Copacabana</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Isla del Sol
+                            </h3>
+                            <p class="text-neutral-secondary dark:text-gray-400 text-sm line-clamp-2 mb-4">El legendario
+                                lugar de nacimiento del Dios Sol en la mitología Inca, ubicado en el Lago Titicaca.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <span class="material-icons text-primary text-base">ac_unit</span>
+                                    <span>Frío</span>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-primary/90 text-white p-2 rounded-lg transition-colors">
+                                    <span class="material-icons">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white dark:bg-neutral-primary/20 rounded-xl overflow-hidden border border-primary/5 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img alt="Tiwanaku"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCFZ0OkdCXlG8rtx6lYRGO-HH6o7DXfDxeV-a3BBziYk_XI1v9q5Z2P7VA8b-xEYVbU6ybudIzFAsrz75UFS6abLloMahqgyQKx5pkxbc-xzrLo9kfrDEZ43sWmC7k2v6xb2tylKe4hSio2swbV92qQ4E1OnaeA2WE166alxS0SvobHMNxjEk6lYZG9Zr2GoR5rJkvB58TP85otBeCtRA9TRhSHh3KxaGCTopfFelCzjpeIsk4SzJKxQLsUpFveSQrGBLPU58xxffs" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-neutral-primary shadow-sm">
+                                $30 / Día
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div
+                                class="flex items-center gap-1 text-[10px] font-bold text-primary uppercase mb-2 tracking-widest">
+                                <span>La Paz</span>
+                                <span class="material-icons text-[10px]">chevron_right</span>
+                                <span>Tiwanaku</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Ruinas de
+                                Tiwanaku</h3>
+                            <p class="text-neutral-secondary dark:text-gray-400 text-sm line-clamp-2 mb-4">Sitio
+                                arqueológico antiguo de una de las civilizaciones pre-incas más importantes de los
+                                Andes.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <span class="material-icons text-primary text-base">history</span>
+                                    <span>Cultural</span>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-primary/90 text-white p-2 rounded-lg transition-colors">
+                                    <span class="material-icons">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white dark:bg-neutral-primary/20 rounded-xl overflow-hidden border border-primary/5 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img alt="Illimani"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgeLlI3eMb9lzDaCNfVfRtzCljq5NNc4YUxkctuexwR9SYX53kAFRm8eIkmmq9yay6EBzgFlOnWhcSdticlBiUfCy8ED-LGjcZjtRdOxQXw_T8h2S9zzGHNveyCP2L1xrzG7LxmRah_LRt_w0RfmOpYa3_1iEZQaGymJT4r7kWsrk_bw2EAZEwVlpQJI4ylkLzudjQ4YyDBI2lle6lnrhtNJ9qJMS-H99IQAb1D-MVEyaqnvs5PTG6gZPEwtxHyYK-UosHPpIwOpA" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-neutral-primary shadow-sm">
+                                $120 / Viaje
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div
+                                class="flex items-center gap-1 text-[10px] font-bold text-primary uppercase mb-2 tracking-widest">
+                                <span>La Paz</span>
+                                <span class="material-icons text-[10px]">chevron_right</span>
+                                <span>Cordillera</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Nevado
+                                Illimani</h3>
+                            <p class="text-neutral-secondary dark:text-gray-400 text-sm line-clamp-2 mb-4">El icónico
+                                gigante de tres picos nevados que vigila la ciudad de La Paz.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <span class="material-icons text-primary text-base">terrain</span>
+                                    <span>Alpino</span>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-primary/90 text-white p-2 rounded-lg transition-colors">
+                                    <span class="material-icons">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="group bg-white dark:bg-neutral-primary/20 rounded-xl overflow-hidden border border-primary/5 hover:border-primary/40 transition-all duration-300 shadow-sm hover:shadow-xl">
+                        <div class="relative aspect-[4/3] overflow-hidden">
+                            <img alt="Camino de la Muerte"
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1ECz_-wM1s3EaVN-5Bv7l3QedBNBRXRNVtCuAdl8zQocuUE6gFJgLOgROzHVpddxksHfiFrIRxit8nrwhoGKJXNYcXbbYHLqKZiXV3U0yGf-CaaopkoxZ6UV9jmmDAQ0IdbI5qQHkg7Dzll9Xg3ThLsCZC3Eme2CeSwVZo1lmRWQYEIH4JmFiTh9UbtubJcXgIzPb3NPqa1hIJ3smtj6Lr7r0zNcprw6uT7jrwJmNVMUp_Z0xbQ8tgrjptWhHJLuHdgwx7x89TSQ" />
+                            <div
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold text-neutral-primary shadow-sm">
+                                $85 / Viaje
+                            </div>
+                        </div>
+                        <div class="p-5">
+                            <div
+                                class="flex items-center gap-1 text-[10px] font-bold text-primary uppercase mb-2 tracking-widest">
+                                <span>La Paz</span>
+                                <span class="material-icons text-[10px]">chevron_right</span>
+                                <span>Yungas</span>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors">Camino de la
+                                Muerte en Bici</h3>
+                            <p class="text-neutral-secondary dark:text-gray-400 text-sm line-clamp-2 mb-4">La máxima
+                                descarga de adrenalina: desciende 3,000 metros desde las altas montañas hasta la selva
+                                tropical.</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center gap-1 text-sm font-medium">
+                                    <span class="material-icons text-primary text-base">directions_bike</span>
+                                    <span>Extremo</span>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-primary/90 text-white p-2 rounded-lg transition-colors">
+                                    <span class="material-icons">arrow_forward</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 flex justify-center items-center gap-4">
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-neutral-secondary hover:bg-primary/10 transition-colors">
+                        <span class="material-icons">chevron_left</span>
+                    </button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold">1</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-neutral-secondary hover:bg-primary/10 transition-colors">2</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-neutral-secondary hover:bg-primary/10 transition-colors">3</button>
+                    <button
+                        class="w-10 h-10 flex items-center justify-center rounded-lg border border-primary/20 text-neutral-secondary hover:bg-primary/10 transition-colors">
+                        <span class="material-icons">chevron_right</span>
+                    </button>
+                </div>
+            </section>
+        </div>
+        <section class="mt-20 mb-12">
+            <div class="flex items-center justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold">Recomendado para ti</h2>
+                    <p class="text-neutral-secondary">Basado en los lugares más populares de esta temporada</p>
+                </div>
+                <div class="flex gap-2">
+                    <button class="p-2 rounded-full border border-primary/20 hover:bg-primary/10"><span
+                            class="material-icons">west</span></button>
+                    <button class="p-2 rounded-full border border-primary/20 hover:bg-primary/10"><span
+                            class="material-icons">east</span></button>
+                </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div
+                    class="bg-white dark:bg-neutral-primary/20 p-4 rounded-xl border border-primary/5 flex items-center gap-4 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                        <img alt="Lago Titicaca" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQ8iTg_NrdF1-XNiFNVhYvegLK2gRdLO6i1PYN-xwGf_VsPrWAOPIowuYO_J6DXAeuuNJB2Sb4qgSVjW9ckPhRQ6TyF56wq14dMXumcqKFv-7Xi6Hoe2HSOzW0LmvPJotoX5kv5JguEvI7NQ7yQ9dd26GZok4p20eOSTpga_r9APBXimEwbb37i_GfZeEQjizMECRr9r6DSnNwCa335p-osHF3fyTKOaTy20M0Awiczq9HBKgoOomwNuDTcJbY5_xWLw0qSQ4icFA" />
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Lago Titicaca</h4>
+                        <p class="text-xs text-neutral-secondary mb-1">Alta Montaña</p>
+                        <span class="text-primary font-bold text-xs">$40+</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-neutral-primary/20 p-4 rounded-xl border border-primary/5 flex items-center gap-4 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                        <img alt="Mercado de las Brujas" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfUALmQ1G3u8gO-gV2yf90yQ1EunWdsLywJKEMGowY-sPBlOeLaXOls7vujrlXc0tXiZXye2cKIbyENNohywaWgfEZRyfzLYcmx8zj7uqi4HLuewO5xOzyC_s5cekKkA1EPCEDoLJeNrGoMgJVUokQSjkfEkCAp1bkN3Iob4VIh_eLzniYgXh7qwk7fguufuR6GMimm_RdVbZ86UsVUzy0StAXJeadMRXMPhdKTcgw08FIMLYbTEb5Y9Rbm4kUoEXRUBl1Msr-cj0" />
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Mercado de las Brujas</h4>
+                        <p class="text-xs text-neutral-secondary mb-1">Tour Cultural</p>
+                        <span class="text-primary font-bold text-xs">Gratis</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-neutral-primary/20 p-4 rounded-xl border border-primary/5 flex items-center gap-4 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                        <img alt="Condoriri" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuABoPzTYw6EuCnXwLDkfNJXIjpKAlho3F7PuYaEm_rJYe6GIhW_v4DnrkrJ4RvKxzVA4aL2ZbNN9HGlfaXbGfMicZtyr2Ht91xI19mIPfzbSTLN8_9E8F1DnufPLyVEyv3nQN6-I5RCEwSDNX2JPntvj1Jr_Wx8M8LrnQ8-Y3k_iA2ScMz8y_HGhrCnbvppda1DFmZGdyB_noNecOYRei2esPGb4AhM5HlK9QtLAQ8d-AFHnZJl6bjoZJwDSBD437lx4o7JJHwe1xk" />
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Trek Condoriri</h4>
+                        <p class="text-xs text-neutral-secondary mb-1">Senderismo</p>
+                        <span class="text-primary font-bold text-xs">$150+</span>
+                    </div>
+                </div>
+                <div
+                    class="bg-white dark:bg-neutral-primary/20 p-4 rounded-xl border border-primary/5 flex items-center gap-4 hover:shadow-lg transition-shadow cursor-pointer">
+                    <div class="w-20 h-20 rounded-lg overflow-hidden flex-shrink-0">
+                        <img alt="Teleférico" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCShVAhGC9ZzmFClpdSJ29Rj-fXP4zUekVxZ1apAHEwZOZfpiutyc5ZGUUg6w8E31y5lZLGxfJi1ZAMi5PuxZXXec106phaxH2Yqv4LC_ejbXr3vUhKftQ8cQZtNKbxmOHGSk1nWIQaFqhsatHNlu4qh1MmTkSoyRAchNG1RYTMv3-tefmaDo_dW_Ilvm6lP88An5OwnsEuGm6xQNjh9nXJjdprc5nN1tCViPILkDf4vcLHuFfYuvHyMIt8U5oO33Pgkka_xStEFd0" />
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm">Mi Teleférico</h4>
+                        <p class="text-xs text-neutral-secondary mb-1">Vistas de Ciudad</p>
+                        <span class="text-primary font-bold text-xs">$3+</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-neutral-primary text-white py-12 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="bg-primary p-2 rounded-lg">
+                            <span class="material-icons text-white">explore</span>
+                        </div>
+                        <span class="text-xl font-bold">Visit<span class="text-primary">LaPaz</span></span>
+                    </div>
+                    <p class="text-gray-400 max-w-sm">La guía turística oficial del departamento de La Paz, Bolivia.
+                        Desde las profundidades de la Amazonía hasta las alturas de los Andes.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Enlaces Rápidos</h5>
+                    <ul class="space-y-2 text-gray-400 text-sm">
+                        <li><a class="hover:text-primary transition-colors" href="#">Sobre Nosotros</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Tours y Actividades</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Seguridad del Viajero</a></li>
+                        <li><a class="hover:text-primary transition-colors" href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4">Síguenos</h5>
+                    <div class="flex gap-4">
+                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
+                            href="#"><span class="material-icons text-sm">facebook</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
+                            href="#"><span class="material-icons text-sm">camera_alt</span></a>
+                        <a class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-primary transition-colors"
+                            href="#"><span class="material-icons text-sm">movie</span></a>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row justify-between text-xs text-gray-500 gap-4">
+                <p>© 2024 Visit La Paz Tourism Board. Todos los derechos reservados.</p>
+                <div class="flex gap-6">
+                    <a class="hover:text-white" href="#">Política de Privacidad</a>
+                    <a class="hover:text-white" href="#">Términos de Servicio</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

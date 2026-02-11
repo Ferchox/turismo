@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Reservas y Solicitud de Servicio - La Paz Explora</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                        "neutral-light": "#eef2ef",
+                        "neutral-dark": "#1a2e20",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.5rem",
+                        "lg": "1rem",
+                        "xl": "1.5rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-neutral-dark dark:text-neutral-light min-h-screen font-display">
+    <header
+        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-primary/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                    <span class="material-icons text-white">explore</span>
+                </div>
+                <span class="text-xl font-bold tracking-tight">LA PAZ <span class="text-primary">EXPLORA</span></span>
+            </div>
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a class="hover:text-primary transition-colors" href="#">Destinos</a>
+                <a class="hover:text-primary transition-colors" href="#">Experiencias</a>
+                <a class="hover:text-primary transition-colors" href="#">Hoteles</a>
+                <button class="bg-primary/10 text-primary px-4 py-2 rounded-full font-semibold">Centro de Ayuda</button>
+            </nav>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <div class="mb-12">
+            <div class="flex items-center justify-center max-w-3xl mx-auto">
+                <div class="flex flex-col items-center flex-1">
+                    <div
+                        class="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center font-bold mb-2 shadow-lg shadow-primary/20">
+                        1</div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-primary">Datos de contacto</span>
+                </div>
+                <div class="h-0.5 w-16 sm:w-24 bg-primary mb-6"></div>
+                <div class="flex flex-col items-center flex-1">
+                    <div
+                        class="w-10 h-10 rounded-full bg-white dark:bg-neutral-dark border-2 border-primary text-primary flex items-center justify-center font-bold mb-2">
+                        2</div>
+                    <span class="text-xs font-semibold uppercase tracking-wider">Personalización</span>
+                </div>
+                <div class="h-0.5 w-16 sm:w-24 bg-neutral-light dark:bg-neutral-dark mb-6"></div>
+                <div class="flex flex-col items-center flex-1">
+                    <div
+                        class="w-10 h-10 rounded-full bg-white dark:bg-neutral-dark border-2 border-neutral-light dark:border-neutral-dark text-neutral-400 flex items-center justify-center font-bold mb-2">
+                        3</div>
+                    <span class="text-xs font-semibold uppercase tracking-wider text-neutral-400">Pago</span>
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+            <div class="lg:col-span-8 space-y-8">
+                <section class="bg-white dark:bg-neutral-dark/30 p-8 rounded-xl border border-primary/5 shadow-sm">
+                    <h2 class="text-2xl font-bold mb-6">Detalles del Viajero Principal</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold opacity-70">Nombre</label>
+                            <input
+                                class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary px-4 py-3"
+                                placeholder="ej. María" type="text" />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold opacity-70">Apellidos</label>
+                            <input
+                                class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary px-4 py-3"
+                                placeholder="ej. Quispe" type="text" />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold opacity-70">Correo Electrónico</label>
+                            <input
+                                class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary px-4 py-3"
+                                placeholder="maria@ejemplo.com" type="email" />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold opacity-70">Número de Teléfono</label>
+                            <input
+                                class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary px-4 py-3"
+                                placeholder="+591 ..." type="tel" />
+                        </div>
+                        <div class="md:col-span-2 space-y-2">
+                            <label class="text-sm font-semibold opacity-70">Número de Pasaporte o C.I.</label>
+                            <input
+                                class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary px-4 py-3"
+                                placeholder="Requerido por regulaciones locales" type="text" />
+                        </div>
+                    </div>
+                </section>
+                <section class="bg-white dark:bg-neutral-dark/30 p-8 rounded-xl border border-primary/5 shadow-sm">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 class="text-2xl font-bold">Personalización del Viaje</h2>
+                        <span class="bg-primary/10 text-primary text-xs font-bold px-3 py-1 rounded-full uppercase">Paso
+                            2</span>
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <label class="text-sm font-semibold opacity-70 mb-3 block">Punto de Recojo (Centro de La
+                                Paz)</label>
+                            <div class="relative">
+                                <span
+                                    class="material-icons absolute left-4 top-1/2 -translate-y-1/2 text-primary opacity-60">location_on</span>
+                                <select
+                                    class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary pl-12 pr-4 py-3 appearance-none">
+                                    <option>Hotel Rosario (Sopocachi)</option>
+                                    <option>Stannum Boutique Hotel</option>
+                                    <option>Selina La Paz</option>
+                                    <option>Plaza Murillo (Punto de Encuentro)</option>
+                                    <option>Dirección personalizada...</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div class="space-y-3">
+                                <label class="text-sm font-semibold opacity-70 block">Preferencias Alimentarias</label>
+                                <div class="flex flex-wrap gap-2">
+                                    <button
+                                        class="px-4 py-2 rounded-full border border-primary/20 bg-primary/5 text-sm font-medium hover:bg-primary/20 transition-colors">Ninguna</button>
+                                    <button
+                                        class="px-4 py-2 rounded-full border border-primary/20 bg-white dark:bg-background-dark text-sm font-medium hover:bg-primary/10 transition-colors">Vegetariano</button>
+                                    <button
+                                        class="px-4 py-2 rounded-full border border-primary/20 bg-white dark:bg-background-dark text-sm font-medium hover:bg-primary/10 transition-colors">Vegano</button>
+                                    <button
+                                        class="px-4 py-2 rounded-full border border-primary/20 bg-white dark:bg-background-dark text-sm font-medium hover:bg-primary/10 transition-colors">Sin
+                                        Gluten</button>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <label class="text-sm font-semibold opacity-70 block">Idioma del Guía</label>
+                                <div class="flex gap-4">
+                                    <label class="flex items-center gap-2 cursor-pointer group">
+                                        <input
+                                            class="text-primary focus:ring-primary bg-background-light dark:bg-background-dark border-none"
+                                            name="lang" type="radio" />
+                                        <span class="text-sm group-hover:text-primary">Inglés</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer group">
+                                        <input checked=""
+                                            class="text-primary focus:ring-primary bg-background-light dark:bg-background-dark border-none"
+                                            name="lang" type="radio" />
+                                        <span class="text-sm group-hover:text-primary">Español</span>
+                                    </label>
+                                    <label class="flex items-center gap-2 cursor-pointer group">
+                                        <input
+                                            class="text-primary focus:ring-primary bg-background-light dark:bg-background-dark border-none"
+                                            name="lang" type="radio" />
+                                        <span class="text-sm group-hover:text-primary">Alemán</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-semibold opacity-70">Solicitudes Adicionales</label>
+                            <textarea
+                                class="w-full bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-2 focus:ring-primary px-4 py-3"
+                                placeholder="Necesidad de tanque de oxígeno, sensibilidad a la altura, etc."
+                                rows="4"></textarea>
+                        </div>
+                    </div>
+                </section>
+                <div class="flex items-center justify-between pt-4">
+                    <button
+                        class="flex items-center gap-2 text-sm font-bold text-neutral-400 hover:text-neutral-600 transition-colors">
+                        <span class="material-icons text-lg">arrow_back</span>
+                        Volver a la búsqueda
+                    </button>
+                    <button
+                        class="bg-primary hover:bg-primary/90 text-white px-10 py-4 rounded-full font-bold shadow-lg shadow-primary/30 transition-all transform hover:-translate-y-0.5 active:scale-95">
+                        Confirmar solicitud
+                    </button>
+                </div>
+            </div>
+            <aside class="lg:col-span-4 lg:sticky lg:top-32">
+                <div
+                    class="bg-white dark:bg-neutral-dark/30 rounded-xl border border-primary/5 shadow-xl overflow-hidden">
+                    <div class="relative h-48">
+                        <img alt="Valle de la Luna La Paz" class="w-full h-full object-cover"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG2JTuoDJrA53mY3a8qR_2sVHfCKxS2lcRGWK8NK94WTL6LAmDBPvRetBJf-pgiDLWjN5KGiUJq5vHW11H_zDmex8nAD5Ma_OFxC6_ibmrVseLa_8oL9cb9qwugssBwqYd6PWHfrmZviPymPZcB32WuQi6DC_khZFVY_4tlN96D4F72uphJq-jkz9KD9XoZUF_tK5AfrHXP8U2xEIz76Bl4-335IP0k1VPJQTY4rVl_eVx9JfB-Vhsaff1pEOk9DSCqJQoQpYzw2w" />
+                        <div
+                            class="absolute top-4 left-4 bg-white/90 dark:bg-background-dark/90 px-3 py-1 rounded-full text-xs font-bold flex items-center gap-1">
+                            <span class="material-icons text-primary text-xs">star</span>
+                            4.9 (124 reseñas)
+                        </div>
+                    </div>
+                    <div class="p-6 space-y-6">
+                        <div>
+                            <h3 class="text-xl font-bold leading-tight">Tour de un día: Illimani y Valle de la Luna</h3>
+                            <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1 flex items-center gap-1">
+                                <span class="material-icons text-sm">schedule</span> 8 horas de duración
+                            </p>
+                        </div>
+                        <div class="space-y-3 py-4 border-y border-primary/5">
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-70">Fecha</span>
+                                <span class="font-bold">24 oct, 2024</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-70">Viajeros</span>
+                                <span class="font-bold">2 Adultos</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span class="opacity-70">Transporte</span>
+                                <span class="font-bold">Privado 4x4</span>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between text-sm opacity-70">
+                                <span>$145.00 x 2 viajeros</span>
+                                <span>$290.00</span>
+                            </div>
+                            <div class="flex justify-between text-sm opacity-70">
+                                <span>Cargo por servicio</span>
+                                <span>$12.50</span>
+                            </div>
+                            <div class="flex justify-between text-sm opacity-70">
+                                <span>Impuesto Turístico (IVH)</span>
+                                <span>$8.20</span>
+                            </div>
+                            <div class="flex justify-between text-lg font-bold pt-4 border-t border-primary/10">
+                                <span>Total (USD)</span>
+                                <span class="text-primary">$310.70</span>
+                            </div>
+                        </div>
+                        <div class="bg-primary/5 p-4 rounded-lg flex items-start gap-3">
+                            <span class="material-icons text-primary">verified_user</span>
+                            <div class="text-xs">
+                                <p class="font-bold mb-1">Cancelación Gratuita</p>
+                                <p class="opacity-70">Cancela hasta 24 horas antes de la experiencia para un reembolso
+                                    completo.</p>
+                            </div>
+                        </div>
+                        <div class="flex flex-col items-center gap-4 pt-2">
+                            <div class="flex gap-4 grayscale opacity-50">
+                                <span class="material-icons" title="Visa">credit_card</span>
+                                <span class="material-icons" title="Mastercard">payment</span>
+                                <span class="material-icons" title="PayPal">account_balance_wallet</span>
+                            </div>
+                            <p class="text-[10px] text-center opacity-50 uppercase tracking-widest font-bold">
+                                Encriptación Segura SSL</p>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="mt-6 p-6 rounded-xl border-2 border-dashed border-primary/20 flex items-center justify-between bg-white dark:bg-transparent">
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                            <span class="material-icons">support_agent</span>
+                        </div>
+                        <div>
+                            <p class="text-sm font-bold leading-tight">¿Necesitas ayuda?</p>
+                            <p class="text-xs opacity-60">Expertos locales 24/7</p>
+                        </div>
+                    </div>
+                    <button
+                        class="bg-primary/10 hover:bg-primary/20 text-primary px-4 py-2 rounded-full text-xs font-bold transition-colors">Chat</button>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer class="mt-24 bg-white dark:bg-neutral-dark/50 py-12 border-t border-primary/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div class="col-span-1 md:col-span-1">
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-icons text-white text-sm">explore</span>
+                    </div>
+                    <span class="text-lg font-bold tracking-tight">LA PAZ</span>
+                </div>
+                <p class="text-sm opacity-60 leading-relaxed">Socio oficial de reservas para el departamento de La Paz,
+                    Bolivia. Explorando los Andes con seguridad.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Enlaces Rápidos</h4>
+                <ul class="text-sm space-y-2 opacity-70">
+                    <li><a class="hover:text-primary" href="#">Sobre Nosotros</a></li>
+                    <li><a class="hover:text-primary" href="#">Contacto</a></li>
+                    <li><a class="hover:text-primary" href="#">Política de Privacidad</a></li>
+                    <li><a class="hover:text-primary" href="#">Términos de Servicio</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Explorar</h4>
+                <ul class="text-sm space-y-2 opacity-70">
+                    <li><a class="hover:text-primary" href="#">Salar de Uyuni</a></li>
+                    <li><a class="hover:text-primary" href="#">Lago Titicaca</a></li>
+                    <li><a class="hover:text-primary" href="#">Ruinas de Tiwanaku</a></li>
+                    <li><a class="hover:text-primary" href="#">Camino de la Muerte</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4">Boletín</h4>
+                <div class="flex gap-2">
+                    <input
+                        class="bg-background-light dark:bg-background-dark border-none rounded-lg focus:ring-1 focus:ring-primary text-sm px-4 py-2 w-full"
+                        placeholder="Correo electrónico" type="email" />
+                    <button class="bg-primary p-2 rounded-lg text-white">
+                        <span class="material-icons text-sm">send</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 mt-12 pt-8 border-t border-primary/5 text-center text-xs opacity-40">
+            © 2024 Portal Turístico La Paz Explora. Todos los derechos reservados.
+        </div>
+    </footer>
+
+</body>
+
+</html>

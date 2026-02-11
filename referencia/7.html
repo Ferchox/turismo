@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Hospedajes en La Paz | Portal Turístico</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-100 font-display transition-colors">
+    <nav
+        class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-8">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                            <span class="material-icons text-white text-xl">landscape</span>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight">VisitLaPaz</span>
+                    </div>
+                    <div class="hidden md:flex space-x-6 text-sm font-medium">
+                        <a class="text-slate-500 hover:text-primary transition-colors" href="#">Destinos</a>
+                        <a class="text-slate-500 hover:text-primary transition-colors" href="#">Tours</a>
+                        <a class="text-primary border-b-2 border-primary pb-5 mt-5" href="#">Hospedaje</a>
+                        <a class="text-slate-500 hover:text-primary transition-colors" href="#">Transporte</a>
+                    </div>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button
+                        class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+                        <span class="material-icons">search</span>
+                    </button>
+                    <button
+                        class="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-full transition-colors">
+                        <span class="material-icons">account_circle</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex mb-4 text-xs font-medium text-slate-400 gap-2 items-center">
+                <a class="hover:text-primary transition-colors" href="#">Inicio</a>
+                <span class="material-icons text-[12px]">chevron_right</span>
+                <a class="hover:text-primary transition-colors" href="#">Bolivia</a>
+                <span class="material-icons text-[12px]">chevron_right</span>
+                <span class="text-slate-600 dark:text-slate-200">Hoteles en La Paz</span>
+            </nav>
+            <div class="flex flex-col md:flex-row gap-4 items-end">
+                <div class="flex-grow grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                    <div class="space-y-1">
+                        <label
+                            class="text-[10px] uppercase tracking-wider font-bold text-slate-400 ml-1">Ubicación</label>
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">location_on</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm font-medium"
+                                type="text" value="La Paz, Bolivia" />
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label class="text-[10px] uppercase tracking-wider font-bold text-slate-400 ml-1">Fechas</label>
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">calendar_today</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm font-medium"
+                                type="text" value="12 Oct - 18 Oct" />
+                        </div>
+                    </div>
+                    <div class="space-y-1">
+                        <label
+                            class="text-[10px] uppercase tracking-wider font-bold text-slate-400 ml-1">Huéspedes</label>
+                        <div class="relative">
+                            <span
+                                class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">group</span>
+                            <input
+                                class="w-full pl-10 pr-4 py-3 bg-slate-50 dark:bg-slate-800 border-none rounded-lg focus:ring-2 focus:ring-primary/50 text-sm font-medium"
+                                type="text" value="2 Adultos, 0 Niños" />
+                        </div>
+                    </div>
+                </div>
+                <button
+                    class="bg-primary hover:bg-opacity-90 text-white font-bold py-3.5 px-8 rounded-lg transition-all shadow-lg shadow-primary/20 whitespace-nowrap">
+                    Actualizar Búsqueda
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <aside class="w-full lg:w-72 flex-shrink-0">
+                <div class="sticky top-24 space-y-8">
+                    <div>
+                        <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+                            <span class="material-icons text-primary text-xl">tune</span>
+                            Filtros
+                        </h3>
+                        <div class="mb-8">
+                            <h4 class="text-sm font-bold mb-4">Rango de Precio (por noche)</h4>
+                            <div class="space-y-4">
+                                <div class="relative h-1 bg-slate-200 dark:bg-slate-700 rounded-full">
+                                    <div class="absolute inset-y-0 left-0 right-1/4 bg-primary rounded-full"></div>
+                                    <div
+                                        class="absolute top-1/2 left-0 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md">
+                                    </div>
+                                    <div
+                                        class="absolute top-1/2 right-1/4 -translate-y-1/2 w-4 h-4 bg-white border-2 border-primary rounded-full shadow-md">
+                                    </div>
+                                </div>
+                                <div class="flex justify-between text-xs font-medium text-slate-500">
+                                    <span>$20</span>
+                                    <span>$450+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <h4 class="text-sm font-bold mb-4">Estrellas</h4>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input checked="" class="w-4 h-4 rounded text-primary focus:ring-primary"
+                                        type="checkbox" />
+                                    <div class="flex text-amber-400">
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                    </div>
+                                    <span class="text-xs text-slate-500">12 resultados</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer group">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <div class="flex text-amber-400">
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span class="material-icons text-[18px]">star</span>
+                                        <span
+                                            class="material-icons text-[18px] text-slate-200 dark:text-slate-700">star</span>
+                                    </div>
+                                    <span class="text-xs text-slate-500">45 resultados</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <h4 class="text-sm font-bold mb-4">Cerca de Puntos de Interés</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm">Teleférico Línea Roja</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm">Plaza Murillo</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm">Mercado de las Brujas</span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm">Barrio de Sopocachi</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-8">
+                            <h4 class="text-sm font-bold mb-4">Servicios</h4>
+                            <div class="space-y-3">
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm flex items-center gap-2">
+                                        <span class="material-icons text-sm opacity-50">wifi</span> WiFi Gratis
+                                    </span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm flex items-center gap-2">
+                                        <span class="material-icons text-sm opacity-50">restaurant</span> Desayuno Incl.
+                                    </span>
+                                </label>
+                                <label class="flex items-center gap-3 cursor-pointer">
+                                    <input class="w-4 h-4 rounded text-primary focus:ring-primary" type="checkbox" />
+                                    <span class="text-sm flex items-center gap-2">
+                                        <span class="material-icons text-sm opacity-50">ac_unit</span> Calefacción/AA
+                                    </span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+            <div class="flex-grow">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 gap-4">
+                    <div>
+                        <h1 class="text-2xl md:text-3xl font-bold">Hospedajes en La Paz</h1>
+                        <p class="text-slate-500 text-sm">124 propiedades encontradas • 12 Oct - 18 Oct</p>
+                    </div>
+                    <div class="flex items-center gap-3 w-full md:w-auto">
+                        <span class="text-sm font-medium text-slate-500 whitespace-nowrap">Ordenar por:</span>
+                        <div class="relative w-full md:w-48">
+                            <select
+                                class="w-full bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg py-2 px-3 text-sm focus:ring-primary appearance-none cursor-pointer">
+                                <option>Recomendados</option>
+                                <option>Precio: Menor a Mayor</option>
+                                <option>Precio: Mayor a Menor</option>
+                                <option>Mejor Valorados</option>
+                                <option>Distancia al Centro</option>
+                            </select>
+                            <span
+                                class="material-icons absolute right-2 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">expand_more</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Modern luxury hotel exterior with glass facade and city view"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB_f7Yi4NEIHmMASTpk5Ulfp51YQ7sAtuk6_wCvB7fmIKJFwiowjuSHr1nWSY3HEk3AfnuHdsZaGsbICLaK3g-PclskpoDy2RX9vNbPJBEG6UMdDGOq0I8uULS6V9zBCEQcclM8FgjxDwaTkIMFosJZYo7z_larY_R-6CR7fxESWmfQACkVUl9bjOizQt9cis2kUDqmxrrwQ0RL4pDa7rxV9F3Kqi9UxKiVD1GVwA-Tg-85Gd5JYS77RFl6r7pFma3xeDnGulxvSXw" />
+                            <div
+                                class="absolute top-3 left-3 bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-tighter">
+                                Opción Destacada
+                            </div>
+                            <button
+                                class="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white/40 transition-colors">
+                                <span class="material-icons text-lg leading-none mt-1">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    Casa Grande Hotel</h3>
+                                <div
+                                    class="flex items-center bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">
+                                    <span class="material-icons text-xs mr-1">star</span> 4.9
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+                                <span class="material-icons text-[14px]">location_on</span> Calacoto, a 1.2km del centro
+                            </p>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400 italic">Cancelación
+                                    Gratuita</span>
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Desayuno
+                                    Incluido</span>
+                            </div>
+                            <div
+                                class="flex items-end justify-between border-t border-slate-50 dark:border-slate-800 pt-4">
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Desde</p>
+                                    <p class="text-2xl font-bold text-slate-900 dark:text-white">$145<span
+                                            class="text-sm font-normal text-slate-500">/noche</span></p>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-opacity-90 text-white font-bold py-2 px-5 rounded-lg transition-colors text-sm">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Boutique hotel courtyard with colonial architecture and plants"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwYESOqEoN4ZP-4xYrl1dVHA1nILpE5xOzkvmHmPJWL-GsL8-0yIAo50LQPd5Vm44ZKXwrjzF509fSUg_L1BByGGlqdpO4-2XwqeD661v0PM41PyNDE5GT80dgn5fgNTRQvWFRAI8PQv0OR2XXW5gx_SAmXpQQTGULbKe2l0UcZ3fRNyNSqk2fA4zf20HxsFjqnq6c4_VXsmegy2n0LN7PalSnacAgutZX2cYqZf0phZGBRiJaRTI1A2YkT1Qp0L5NN0jHNnKbcYw" />
+                            <button
+                                class="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white/40 transition-colors">
+                                <span class="material-icons text-lg leading-none mt-1">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    Hotel Rosario La Paz</h3>
+                                <div
+                                    class="flex items-center bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">
+                                    <span class="material-icons text-xs mr-1">star</span> 4.7
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+                                <span class="material-icons text-[14px]">location_on</span> Cerca del Mercado de las
+                                Brujas, 0.3km
+                            </p>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Estilo
+                                    Colonial</span>
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Mate
+                                    de Coca</span>
+                            </div>
+                            <div
+                                class="flex items-end justify-between border-t border-slate-50 dark:border-slate-800 pt-4">
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Desde</p>
+                                    <p class="text-2xl font-bold text-slate-900 dark:text-white">$78<span
+                                            class="text-sm font-normal text-slate-500">/noche</span></p>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-opacity-90 text-white font-bold py-2 px-5 rounded-lg transition-colors text-sm">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Cozy boutique room with andean textiles and city window"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuCXZmbI1Ljyd-t7PCtdURh-x9eqvL8Q1m229s-KmK9HO_o1E34ia4YOA_TcM_e2tkwajB8txLJSfzEnvvmtSiZy_9Y5_PAbHdDYqyVX5A2E7Sh5Jayw82dC6sMnwwXd2M3oPeiK3PBkJpK4ajUCi9DrnJUtB-kLMyUyIlhFOBsTbOOb2luBwk39rontWKtvTUWbhVsl8T0RC8YTv_N6SZJGvc_UZ37xDEU3vaV4w7OaLYBXxWlvkjRapdiot4ZtaoRAkg_wd2QcklA" />
+                            <button
+                                class="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white/40 transition-colors">
+                                <span class="material-icons text-lg leading-none mt-1">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    Atix Hotel</h3>
+                                <div
+                                    class="flex items-center bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">
+                                    <span class="material-icons text-xs mr-1">star</span> 4.8
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+                                <span class="material-icons text-[14px]">location_on</span> Zona Sur, a 1.5km del centro
+                            </p>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Piscina
+                                    en la Azotea</span>
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Ecológico</span>
+                            </div>
+                            <div
+                                class="flex items-end justify-between border-t border-slate-50 dark:border-slate-800 pt-4">
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Desde</p>
+                                    <p class="text-2xl font-bold text-slate-900 dark:text-white">$182<span
+                                            class="text-sm font-normal text-slate-500">/noche</span></p>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-opacity-90 text-white font-bold py-2 px-5 rounded-lg transition-colors text-sm">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-sm border border-slate-100 dark:border-slate-800 group hover:shadow-xl transition-all duration-300">
+                        <div class="relative h-48 overflow-hidden">
+                            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                data-alt="Hostel common area with hammocks and community travelers"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4xEJCols1_2-XSNiHozwiLiLlodNQzhVCh2j_M0nsKIjAb4yL_AH_4cNHIcmJiOgz3PCpKxWXSWd_4Jia_iVQ5xkSz4zFelfYWvj5zHcQupHwRyt9T006CrjeWkf584XBbKiraswldcYEuuJLciSFLwKAISonMXVdf2nfyJIy7J7reJqz37_vdTHDA7KVaXZ_VnFNqlXJhfDLfMD6Fq73NaVbY3aOtLG9h37JvOUyAAZqG9Z0ftOOyoaiv4Warz2cbfTAmDHHy5I" />
+                            <button
+                                class="absolute top-3 right-3 w-8 h-8 bg-white/20 backdrop-blur-md text-white rounded-full hover:bg-white/40 transition-colors">
+                                <span class="material-icons text-lg leading-none mt-1">favorite_border</span>
+                            </button>
+                        </div>
+                        <div class="p-5">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg leading-tight group-hover:text-primary transition-colors">
+                                    Wild Rover La Paz</h3>
+                                <div
+                                    class="flex items-center bg-primary/10 text-primary px-2 py-1 rounded text-xs font-bold">
+                                    <span class="material-icons text-xs mr-1">star</span> 4.5
+                                </div>
+                            </div>
+                            <p class="text-xs text-slate-500 flex items-center gap-1 mb-4">
+                                <span class="material-icons text-[14px]">location_on</span> Centro, a 0.1km del corazón
+                                de la ciudad
+                            </p>
+                            <div class="flex items-center gap-2 mb-6">
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Ambiente
+                                    Social</span>
+                                <span
+                                    class="bg-slate-100 dark:bg-slate-800 text-[10px] px-2 py-1 rounded font-medium text-slate-600 dark:text-slate-400">Económico</span>
+                            </div>
+                            <div
+                                class="flex items-end justify-between border-t border-slate-50 dark:border-slate-800 pt-4">
+                                <div>
+                                    <p class="text-[10px] text-slate-400 font-bold uppercase">Desde</p>
+                                    <p class="text-2xl font-bold text-slate-900 dark:text-white">$15<span
+                                            class="text-sm font-normal text-slate-500">/noche</span></p>
+                                </div>
+                                <button
+                                    class="bg-primary hover:bg-opacity-90 text-white font-bold py-2 px-5 rounded-lg transition-colors text-sm">
+                                    Ver Detalles
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-12 relative rounded-2xl overflow-hidden h-64 bg-slate-200 dark:bg-slate-800">
+                    <img class="w-full h-full object-cover opacity-50 grayscale"
+                        data-alt="Stylized map of La Paz with hotel pin points" data-location="La Paz, Bolivia"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuABlvPwls3YJJvlEj3I-1Jck0iSEsY7jKUqT6irOarEff3agPLbLJCEP-w-LPjInqjv2TxHNpajuuAMT9D62uQ6TUJpDH4NZ6-EACFGBTFmfWHKSFWD94FPzcE-3ucNsD1M1elDCEaTjbwWqhcJYhFDcDxRjZUYNkR2fGv45iPGgV70WJYtUC6sze0RS7zH-ocLlYioLEma1e4kY0ByeMWeYc5h3xtdj--ZEG8sApRwyUS85vJVUGEixzmjYgFgRzjQEzZdNsNRQYA" />
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button
+                            class="bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-bold py-3 px-8 rounded-full shadow-2xl flex items-center gap-2 border border-slate-200 dark:border-slate-700 hover:scale-105 transition-transform">
+                            <span class="material-icons">map</span>
+                            Ver resultados en el mapa
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="mt-20">
+            <div class="flex items-end justify-between mb-8">
+                <div>
+                    <h2 class="text-2xl font-bold">También te puede interesar: Experiencias populares</h2>
+                    <p class="text-slate-500">Complementa tu estadía con estos tours destacados en La Paz.</p>
+                </div>
+                <button class="text-primary font-bold flex items-center gap-1 hover:underline">
+                    Ver todos los tours <span class="material-icons">arrow_forward</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="group cursor-pointer">
+                    <div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-3">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Cyclists on the famous Death Road in Bolivia"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCD2Ao7lCdDcJGzWuG20LRjH2QPjA_FgcUHJyFwEvNumPoFpnOtri8bouiLtN4oqoViGfVQ1RUbQclttghQaQ9j51oFM3QHR9-sK2cZUwamCql34NvZudgSAyZQM2rhHb58hk00KDj8MMcznX3mgEAokhZUpFAujdCUdrUJLqRc7muBWLM59zw-_Hhl9hX52Zsed4R2QB0i5bC0S3FMkwStS7wfOJZ568_Za5sPurGV7wKxgFj_rnH5mlUEwr7Y6UT5psW8QlmHHcM" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="text-[10px] uppercase font-bold text-primary mb-1">Aventura</p>
+                            <h4 class="font-bold leading-tight">Ciclismo en el Camino de la Muerte</h4>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <span class="text-xs font-bold text-slate-400">Desde $85</span>
+                        <div class="flex items-center text-xs text-amber-400">
+                            <span class="material-icons text-xs">star</span>
+                            <span class="font-bold ml-1">4.9</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-3">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Landscape of Valle de la Luna with eroded clay formations"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBreWUyg2uRxbSvq0pylfuWz-UAfV5Y4yT-h3GoLO0XSzQi8pw1Gjawn-Vu5pW5_ihRnpKMUuDgsHM_jjB67LYRpXVAEIhD_ZWPZUjuHy1eTltus_uPeEhfRplyy_Xd-ZvrQCeQLHUnMdxtO_a20pANx_2ZXMbpDhDF1LcXABnTNxaX9zD_qopm6Rijuzo8tF-7ghxSLuLiP8wwiQ2Xpq2k0_0bf7GhqgFcHNjIlp4wcjm-4CINITSrKo5d-GtWWZ42OA_j9B56viI" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="text-[10px] uppercase font-bold text-primary mb-1">Turismo</p>
+                            <h4 class="font-bold leading-tight">Valle de la Luna - Medio Día</h4>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <span class="text-xs font-bold text-slate-400">Desde $25</span>
+                        <div class="flex items-center text-xs text-amber-400">
+                            <span class="material-icons text-xs">star</span>
+                            <span class="font-bold ml-1">4.6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-3">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Teleferico cable cars moving over La Paz city landscape"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL00cp67KLmfKHYTaJuS2zjQQzhZfaX3B9pOkYW7PoZjlRF9RBkkczN0nsQKLxel_k_rG1sjz45CP7lPUMtfCo69ZVq-hasAa7g755sa6HIXOc0FNWYcI8ORzdlV-4z-8RMsj29pzGbsIAfHBXBAudUJXlI5zHlfPPhs9mw7lEnlEwMxyy_54UGy72KmlmQJe5Me2jkoXRrCdyN7Qk_Wc_1m6CPSBKn5wjWieQRlHm-9I5asR6RkR5Y6PlorASFAJQoeVNHc4BZPY" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="text-[10px] uppercase font-bold text-primary mb-1">Cultura</p>
+                            <h4 class="font-bold leading-tight">Teleférico y City Tour</h4>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <span class="text-xs font-bold text-slate-400">Desde $35</span>
+                        <div class="flex items-center text-xs text-amber-400">
+                            <span class="material-icons text-xs">star</span>
+                            <span class="font-bold ml-1">4.8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="relative aspect-[4/5] rounded-xl overflow-hidden mb-3">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="Traditional Bolivian market scene with colorful textiles"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5iVvxDl8ZwL93oN6WVwRwObdVGnefU3J2swIWGD6VuEitK-SxvoTQOWCDDROm0yMTUSc6xbIDxuMfwOhZIHqQDfntyzlwMoOQudskliCG9NUWE-N1bcw9Eb2m25iIDQKYKVRx9MrqnFeJMiYVWzW-PHXelBVQAONLeF3NZrQ_tMATBDOpL8Gnvs8BcNqux0_H97fEX7A_E2xNpyMhfDdTDK8eTIcX6L4wsuMAneOfh-6uWCnVdJFkwa2FxrZlg6eQoXqGRal3QJw" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent">
+                        </div>
+                        <div class="absolute bottom-4 left-4 text-white">
+                            <p class="text-[10px] uppercase font-bold text-primary mb-1">Gastronomía</p>
+                            <h4 class="font-bold leading-tight">Tour Gastronómico por Mercados</h4>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center px-1">
+                        <span class="text-xs font-bold text-slate-400">Desde $40</span>
+                        <div class="flex items-center text-xs text-amber-400">
+                            <span class="material-icons text-xs">star</span>
+                            <span class="font-bold ml-1">5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-900 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-slate-400">Explorar</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a class="hover:text-primary" href="#">Destinos</a></li>
+                        <li><a class="hover:text-primary" href="#">Hospedaje</a></li>
+                        <li><a class="hover:text-primary" href="#">Tours</a></li>
+                        <li><a class="hover:text-primary" href="#">Transporte</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-slate-400">Recursos</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a class="hover:text-primary" href="#">Guías de Viaje</a></li>
+                        <li><a class="hover:text-primary" href="#">Consejos de Seguridad</a></li>
+                        <li><a class="hover:text-primary" href="#">Eventos Locales</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-slate-400">Empresa</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a class="hover:text-primary" href="#">Sobre Nosotros</a></li>
+                        <li><a class="hover:text-primary" href="#">Empleos</a></li>
+                        <li><a class="hover:text-primary" href="#">Contacto</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-4 uppercase text-xs tracking-widest text-slate-400">Mantente Informado</h5>
+                    <div class="flex gap-2">
+                        <input class="bg-slate-50 dark:bg-slate-900 border-none rounded-lg text-sm w-full"
+                            placeholder="Tu correo electrónico" type="email" />
+                        <button class="bg-primary p-2 rounded-lg text-white">
+                            <span class="material-icons">send</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="border-t border-slate-100 dark:border-slate-900 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <div class="flex items-center gap-2">
+                    <div class="w-6 h-6 bg-primary rounded flex items-center justify-center">
+                        <span class="material-icons text-white text-[14px]">landscape</span>
+                    </div>
+                    <span class="font-bold text-sm">VisitLaPaz © 2024</span>
+                </div>
+                <div class="flex gap-6 text-xs text-slate-400">
+                    <a class="hover:text-primary" href="#">Política de Privacidad</a>
+                    <a class="hover:text-primary" href="#">Términos de Servicio</a>
+                    <a class="hover:text-primary" href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

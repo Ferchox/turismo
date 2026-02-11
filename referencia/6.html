@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Aventura en Bicicleta por el Camino de la Muerte | La Paz, Bolivia</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: { "DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        .sticky-sidebar {
+            position: sticky;
+            top: 2rem;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+    <nav class="bg-white/80 dark:bg-background-dark/80 backdrop-blur-md sticky top-0 z-50 border-b border-primary/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex items-center gap-2">
+                    <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                        <span class="material-icons text-white">terrain</span>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight">LA PAZ <span
+                            class="text-primary">EXPLORE</span></span>
+                </div>
+                <div class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider">
+                    <a class="hover:text-primary transition-colors" href="#">Destinos</a>
+                    <a class="hover:text-primary transition-colors text-primary border-b-2 border-primary"
+                        href="#">Tours</a>
+                    <a class="hover:text-primary transition-colors" href="#">Hoteles</a>
+                    <a class="hover:text-primary transition-colors" href="#">Blog</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button class="p-2 rounded-full bg-primary/10 text-primary">
+                        <span class="material-icons">search</span>
+                    </button>
+                    <button
+                        class="px-6 py-2.5 bg-primary text-slate-900 font-bold rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all uppercase text-xs tracking-widest">
+                        Mi Cuenta
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+        <nav class="flex items-center gap-2 text-sm text-slate-500 font-medium">
+            <a class="hover:text-primary" href="#">Inicio</a>
+            <span class="material-icons text-xs">chevron_right</span>
+            <a class="hover:text-primary" href="#">La Paz</a>
+            <span class="material-icons text-xs">chevron_right</span>
+            <a class="hover:text-primary" href="#">Región de los Yungas</a>
+            <span class="material-icons text-xs">chevron_right</span>
+            <span class="text-slate-900 dark:text-white font-bold">Aventura Camino de la Muerte</span>
+        </nav>
+    </div>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+            <div class="lg:col-span-2 space-y-10">
+                <section class="space-y-4">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-4">
+                        <div>
+                            <span
+                                class="px-3 py-1 bg-primary/20 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">Aventura
+                                Más Vendida</span>
+                            <h1 class="text-4xl md:text-5xl font-extrabold mt-2 tracking-tight">Ciclismo en el Camino de
+                                la Muerte: <br /><span class="text-primary">El Descenso Definitivo</span></h1>
+                        </div>
+                        <div class="flex items-center gap-2 mb-2">
+                            <div class="flex text-primary">
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star</span>
+                                <span class="material-icons">star_half</span>
+                            </div>
+                            <span class="font-bold text-lg">4.9</span>
+                            <span class="text-slate-400 text-sm">(1.2k Reseñas)</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-4 grid-rows-2 gap-4 h-[500px]">
+                        <div class="col-span-4 md:col-span-3 row-span-2 relative overflow-hidden rounded-xl">
+                            <img alt="Ciclismo en el Camino de la Muerte" class="w-full h-full object-cover"
+                                data-alt="Mountain biker descending a narrow foggy road"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC3-nv-22vnsRhSED1liTQFGpkwbrhRJLixIzgVT7WCTKi0gnUMG68Rz3miMwNmbEv46OHWyZ5MkVZNVhV3Tm5Mw5qZ9rPw2yq_ejJ4ij56GAlTMuITOBuV_pHLZYSPYM6aUZDfRAHPoCuTGFvhCajnxxODmz-E-0iIZWyfP_0U5OUHNYMZRasYTbE7Ke7JqI2kxwoENKNrhhE9m4K52T5-BcD_5t606Iz9MlPphyialt3nd4DeYUijM76CIFXGA2_mvQLcM4wQKfU" />
+                        </div>
+                        <div class="hidden md:block relative overflow-hidden rounded-xl">
+                            <img alt="Paisaje de montaña" class="w-full h-full object-cover"
+                                data-alt="High altitude mountain landscape with clouds"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD76yvxr4zLNu1mqSyZrjT-p-P6vXVR04G4F81iOTOq-OsKqMpG_2d_TcLqBlGe1utW9LsM81E51lQckKSEQi1-kasa4aWRbQzYveGhb8JFb1CK-1CvsVaSh9Yu7AxpliiAKCzl-Ai7I34A_ahquJ_gZU7Xq90tZFzeoTELC3tR7IuiCP84A0vU6rewJxLeetQ7TtEEzW_IbuPTuitR6YHGt7amRDeaFUWJHgMKSuFJoDzfvgbR1C9A_EqfYulYsuwM_u1JBSix_D0" />
+                        </div>
+                        <div class="hidden md:block relative overflow-hidden rounded-xl">
+                            <img alt="Equipo de aventura" class="w-full h-full object-cover"
+                                data-alt="Mountain bikes lined up for excursion"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdYmn1yW37jMvueTxJ1OOSjXojbc_yEzya-hZAcBV-h_iZJnj8hVAuR6gv40hd8FjCm2yyLJfJpbUstfzFALnMPbrC7QuQEUICOqQGqtODvlR-cyGuAJ6ghmQx_B_s_7KG8XT2OexiQmnqi503ws0tYLIhlVDNNP_EEXG3hy_maPpKRN5KnKpdLNuXIqnGmsRf_hxhMejH4TzdLhuXRpmdMSlJ6lzG1l1nbzbJiYk2kEOKYnYrOpZrEayGRvKf82ON_LSzkTNADo4" />
+                        </div>
+                    </div>
+                </section>
+                <section class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div
+                        class="bg-white dark:bg-background-dark border border-slate-100 dark:border-primary/10 p-5 rounded-xl shadow-sm">
+                        <span class="material-icons text-primary mb-2">schedule</span>
+                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider">Duración</p>
+                        <p class="font-bold text-lg">11-12 Horas</p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark border border-slate-100 dark:border-primary/10 p-5 rounded-xl shadow-sm">
+                        <span class="material-icons text-primary mb-2">trending_up</span>
+                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider">Dificultad</p>
+                        <p class="font-bold text-lg">Alta / Extrema</p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark border border-slate-100 dark:border-primary/10 p-5 rounded-xl shadow-sm">
+                        <span class="material-icons text-primary mb-2">group</span>
+                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider">Grupo</p>
+                        <p class="font-bold text-lg">Máx 12 Pers.</p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-background-dark border border-slate-100 dark:border-primary/10 p-5 rounded-xl shadow-sm">
+                        <span class="material-icons text-primary mb-2">child_care</span>
+                        <p class="text-slate-500 text-xs uppercase font-bold tracking-wider">Edad Mín.</p>
+                        <p class="font-bold text-lg">18+ Años</p>
+                    </div>
+                </section>
+                <section class="prose prose-slate max-w-none dark:prose-invert">
+                    <h2 class="text-2xl font-bold mb-4">Vive la adrenalina de los Yungas</h2>
+                    <p class="text-slate-600 dark:text-slate-300 leading-relaxed text-lg">
+                        Prepárate para el viaje de tu vida. La carretera de los Yungas, mundialmente conocida como el
+                        "Camino de la Muerte", ofrece un emocionante descenso desde las cumbres de gran altitud de La
+                        Cumbre (4.700m) hasta la exuberante selva subtropical de Coroico (1.200m).
+                    </p>
+                    <p class="text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">
+                        Navega por acantilados dramáticos, pasajes estrechos y cascadas impresionantes. Nuestros guías
+                        profesionales garantizan que la seguridad sea lo primero, proporcionando bicicletas de montaña
+                        Kona de alta gama, cascos integrales y armadura corporal. Este no es solo un paseo en bicicleta;
+                        es un viaje de 64 km lleno de adrenalina a través del ecosistema más diverso de Bolivia.
+                    </p>
+                    <div class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 font-bold text-sm">
+                        <div class="flex items-center gap-2"><span
+                                class="material-icons text-primary text-xl">check_circle</span> Guías Profesionales
+                            Bilingües</div>
+                        <div class="flex items-center gap-2"><span
+                                class="material-icons text-primary text-xl">check_circle</span> Bicicletas de Montaña de
+                            Doble Suspensión</div>
+                        <div class="flex items-center gap-2"><span
+                                class="material-icons text-primary text-xl">check_circle</span> Almuerzo Buffet y Duchas
+                            de Agua Caliente</div>
+                        <div class="flex items-center gap-2"><span
+                                class="material-icons text-primary text-xl">check_circle</span> Transporte desde/hacia
+                            La Paz</div>
+                    </div>
+                </section>
+                <section>
+                    <h2 class="text-2xl font-bold mb-8">Itinerario de la Aventura</h2>
+                    <div class="space-y-0 border-l-2 border-primary/20 ml-4">
+                        <div class="relative pl-10 pb-12">
+                            <div
+                                class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20">
+                            </div>
+                            <h3 class="text-lg font-bold">07:30 AM — Recojo y Preparación</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mt-2">Encuentro en nuestra oficina central para
+                                el ajuste del equipo y una charla detallada de seguridad. Traslado a La Cumbre.</p>
+                        </div>
+                        <div class="relative pl-10 pb-12">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700">
+                            </div>
+                            <h3 class="text-lg font-bold">09:30 AM — El Primer Descenso</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mt-2">Inicio en carreteras pavimentadas para
+                                ganar confianza. Vistas increíbles de las montañas a 4.700 metros sobre el nivel del
+                                mar.</p>
+                        </div>
+                        <div class="relative pl-10 pb-12">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700">
+                            </div>
+                            <h3 class="text-lg font-bold">11:30 AM — El Camino de la Muerte propiamente dicho</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mt-2">Ingreso a la sección sin pavimentar.
+                                Caminos estrechos, caídas pronunciadas y cascadas espectaculares al entrar en el bosque
+                                nuboso.</p>
+                        </div>
+                        <div class="relative pl-10">
+                            <div class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-slate-300 dark:bg-slate-700">
+                            </div>
+                            <h3 class="text-lg font-bold">02:30 PM — Llegada y Celebración</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mt-2">Llegada a Yolosa. Disfruta de un
+                                reparador almuerzo buffet, duchas calientes y piscina en un eco-resort local antes de
+                                regresar a La Paz.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="pt-10 border-t border-slate-100 dark:border-primary/10">
+                    <div class="flex justify-between items-center mb-6">
+                        <h2 class="text-2xl font-bold">Hospédate en los Yungas</h2>
+                        <a class="text-primary font-bold text-sm hover:underline" href="#">Ver Todos los Hoteles</a>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div
+                            class="group bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-slate-100 dark:border-primary/10 hover:shadow-xl transition-shadow">
+                            <div class="relative h-48 overflow-hidden">
+                                <img alt="Hotel Yungas"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    data-alt="Eco hotel with jungle view and pool"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDfWiGbtfT3py8Way9g63MVyjPr7E5uQgPFjwaE8YKEVpsEhb-Kz_yKand0XyoF6jOGQPUNAZZ_Y27UtwnMmznxwPdgyZTHYNPlcmHBHQ10oW_7GPl6ttnXrwMQxfnJitjn193T08sIO9bf4U-fWLrgbndvC6hKpT513HjEK-j9MvL5BQPHomApvRsQCmN-pf_5GNFeDyDo5FKZSyWArqttOL_AstVIuLOwfzE-32SykAUHimQmKWlj2UfV1Zu0k7GePAdS694h4PU" />
+                                <div
+                                    class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-900 shadow-sm">
+                                    Desde $85</div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg">Sol y Luna Eco-Lodge</h4>
+                                <p class="text-slate-500 text-sm mb-4">Coroico, Yungas</p>
+                                <div class="flex items-center gap-1 text-primary mb-4">
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="text-xs font-bold ml-1 text-slate-900 dark:text-white">4.7</span>
+                                </div>
+                                <button
+                                    class="w-full py-2 bg-primary/10 text-primary font-bold rounded hover:bg-primary hover:text-slate-900 transition-colors">Reservar
+                                    Estancia</button>
+                            </div>
+                        </div>
+                        <div
+                            class="group bg-white dark:bg-background-dark rounded-xl overflow-hidden border border-slate-100 dark:border-primary/10 hover:shadow-xl transition-shadow">
+                            <div class="relative h-48 overflow-hidden">
+                                <img alt="Hotel Bolivia"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                    data-alt="Luxury resort overlooking green mountains"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBy1IPloNnQEG_yni3_YtIG8WVlpH_TdP2Oy1vZ4RbpVQXYq_nIiUAdpA2k7HJmuqGnzKYDyZgMoC6HEw1uOgxaF8T8thtWbBiCz-bbpmh_Oq4v-vxfyW_lUJiTSyY8dYKNSNJKJlSxz0UMd3WsXuJIU7QcSos6TPOqs92FyW6vexTc2Def5oS7Uh_l2nA6nBzrSaiZAVZvzGzbAxxTBv7ixfCrA-OsABkb21nEe8byxBTaXDPMaHe8S6OqPabJOEgwhhow4X7UHfM" />
+                                <div
+                                    class="absolute top-4 right-4 bg-white/90 px-2 py-1 rounded text-xs font-bold text-slate-900 shadow-sm">
+                                    Desde $110</div>
+                            </div>
+                            <div class="p-4">
+                                <h4 class="font-bold text-lg">Villa Verde Resort</h4>
+                                <p class="text-slate-500 text-sm mb-4">Coroico, Yungas</p>
+                                <div class="flex items-center gap-1 text-primary mb-4">
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="material-icons text-sm">star</span>
+                                    <span class="text-xs font-bold ml-1 text-slate-900 dark:text-white">4.9</span>
+                                </div>
+                                <button
+                                    class="w-full py-2 bg-primary/10 text-primary font-bold rounded hover:bg-primary hover:text-slate-900 transition-colors">Reservar
+                                    Estancia</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <div class="lg:col-span-1">
+                <div class="sticky-sidebar space-y-6">
+                    <div
+                        class="bg-white dark:bg-background-dark rounded-xl shadow-2xl shadow-primary/5 border border-primary/20 overflow-hidden">
+                        <div class="p-6 bg-slate-900 text-white">
+                            <p class="text-slate-400 text-sm uppercase font-bold tracking-widest">Precio Inicial</p>
+                            <div class="flex items-baseline gap-2">
+                                <span class="text-4xl font-extrabold text-primary">$89.00</span>
+                                <span class="text-slate-400 text-sm font-medium">/ por persona</span>
+                            </div>
+                        </div>
+                        <div class="p-6 space-y-6">
+                            <div>
+                                <label
+                                    class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">Seleccionar
+                                    Fecha</label>
+                                <div class="relative">
+                                    <input
+                                        class="w-full px-4 py-3 rounded-lg border-slate-200 dark:border-slate-700 dark:bg-slate-800 focus:ring-primary focus:border-primary transition-all font-medium"
+                                        type="date" value="2023-10-15" />
+                                    <span
+                                        class="absolute right-4 top-3.5 material-icons text-slate-400 pointer-events-none">calendar_month</span>
+                                </div>
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2 uppercase tracking-wide">Viajeros</label>
+                                <div
+                                    class="flex items-center justify-between p-3 border border-slate-200 dark:border-slate-700 rounded-lg dark:bg-slate-800">
+                                    <button
+                                        class="w-10 h-10 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center hover:bg-primary/10 transition-colors">
+                                        <span class="material-icons">remove</span>
+                                    </button>
+                                    <span class="text-lg font-bold">2 Personas</span>
+                                    <button
+                                        class="w-10 h-10 rounded-full bg-primary text-slate-900 flex items-center justify-center hover:shadow-lg transition-all">
+                                        <span class="material-icons">add</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="pt-6 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                                <span class="text-lg font-bold">Precio Total</span>
+                                <span class="text-2xl font-extrabold text-slate-900 dark:text-white">$178.00</span>
+                            </div>
+                            <button
+                                class="w-full py-5 bg-primary text-slate-900 font-extrabold rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all uppercase tracking-widest flex items-center justify-center gap-3">
+                                <span class="material-icons">bolt</span>
+                                Consultar Disponibilidad
+                            </button>
+                            <p class="text-center text-xs text-slate-500 font-medium">Cancelación gratuita hasta 24
+                                horas antes</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 gap-4">
+                        <div class="flex items-center gap-4 p-4 bg-primary/5 rounded-xl border border-primary/10">
+                            <div
+                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center text-primary shadow-sm">
+                                <span class="material-icons">verified_user</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Seguridad Certificada</p>
+                                <p class="text-xs text-slate-500">Licencia oficial de aventura</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 p-4 bg-primary/5 rounded-xl border border-primary/10">
+                            <div
+                                class="w-12 h-12 bg-white dark:bg-slate-800 rounded-full flex items-center justify-center text-primary shadow-sm">
+                                <span class="material-icons">headset_mic</span>
+                            </div>
+                            <div>
+                                <p class="text-sm font-bold">Soporte 24/7</p>
+                                <p class="text-xs text-slate-500">Equipo de conserjería disponible</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 h-48 relative">
+                        <img alt="Ubicación en el Mapa" class="w-full h-full object-cover opacity-50 grayscale"
+                            data-alt="Satellite map view of Yungas region" data-location="La Paz, Bolivia"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCY56KOiJsMTX-8sHHseC9P5dD-QlfrTVs144bB5h9JBvwLJWc-gpNl_HZN3UaJQejFuYH8nzXqg3MbwIQ_CzKhMrPo1icOw53tonpr56DD2uaRY8fbgL1A1lK83stE9FrtE-Jb2s1C3Dm0z3bGeWbjPiDPRxNyWxNW4tV8Is7vL_sJaPE1z2H9PTwAFUxg7lsF4nppvbBADlM86SGno19etxyjdaeqrwxHcNuV6YGr_rh8qUAilwkIb5Btr4Pa7S6HaqyxgRc49_Q" />
+                        <div class="absolute inset-0 flex items-center justify-center">
+                            <div class="relative">
+                                <div class="w-8 h-8 bg-primary rounded-full animate-ping absolute -inset-0 opacity-50">
+                                </div>
+                                <div
+                                    class="w-8 h-8 bg-primary rounded-full flex items-center justify-center relative shadow-lg">
+                                    <span class="material-icons text-white text-sm">location_on</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="absolute bottom-4 left-4 right-4 bg-white/90 dark:bg-slate-900/90 p-2 rounded-lg text-xs font-bold shadow-lg">
+                            Ruta: La Cumbre a Coroico
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-slate-900 text-white py-16 border-t-4 border-primary">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-12">
+                <div class="col-span-2 space-y-6">
+                    <div class="flex items-center gap-2">
+                        <div class="w-8 h-8 bg-primary rounded flex items-center justify-center">
+                            <span class="material-icons text-slate-900 text-sm">terrain</span>
+                        </div>
+                        <span class="text-xl font-extrabold tracking-tight">LA PAZ <span
+                                class="text-primary">EXPLORE</span></span>
+                    </div>
+                    <p class="text-slate-400 max-w-sm">Operador turístico líder en aventuras en Bolivia. Nos
+                        especializamos en experiencias de alta adrenalina y turismo sostenible en los Andes y la
+                        Amazonía.</p>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 text-primary">Descubrir</h5>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a class="hover:text-white transition-colors" href="#">Tours en Yungas</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">City Tours La Paz</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Salar de Uyuni</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Lago Titicaca</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="font-bold mb-6 text-primary">Actividades</h5>
+                    <ul class="space-y-4 text-sm text-slate-400">
+                        <li><a class="hover:text-white transition-colors" href="#">Ciclismo de Montaña</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Trekking y Senderismo</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Escalada Huayna Potosí</a></li>
+                        <li><a class="hover:text-white transition-colors" href="#">Cultura y Gastronomía</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div
+                class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-slate-500">© 2023 La Paz Explore. Todos los derechos reservados.</p>
+                <div class="flex gap-6 text-slate-500">
+                    <a class="hover:text-primary transition-colors" href="#"><span
+                            class="material-icons">facebook</span></a>
+                    <a class="hover:text-primary transition-colors" href="#"><span
+                            class="material-icons">camera_alt</span></a>
+                    <a class="hover:text-primary transition-colors" href="#"><span
+                            class="material-icons">alternate_email</span></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

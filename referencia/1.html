@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Inicio - Turismo La Paz | Descubre Bolivia</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#13ec5b",
+                        "background-light": "#f6f8f6",
+                        "background-dark": "#102216",
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans"]
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<nav class="fixed top-0 w-full z-50 glass-nav border-b border-slate-200/50 dark:border-slate-800/50">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="flex items-center gap-8">
+<a class="flex items-center gap-2" href="#">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-white">explore</span>
+</div>
+<span class="text-xl font-bold tracking-tight text-slate-800 dark:text-white uppercase">La Paz</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<div class="group relative">
+<button class="flex items-center gap-1 font-medium hover:text-primary transition-colors">
+                        Destinos <span class="material-icons text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-1 font-medium hover:text-primary transition-colors">
+                        Alojamiento <span class="material-icons text-sm">expand_more</span>
+</button>
+</div>
+<div class="group relative">
+<button class="flex items-center gap-1 font-medium hover:text-primary transition-colors">
+                        Actividades <span class="material-icons text-sm">expand_more</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-icons">shopping_cart</span>
+</button>
+<button class="p-2 hover:bg-primary/10 rounded-full transition-colors">
+<span class="material-icons">account_circle</span>
+</button>
+<button class="bg-primary hover:bg-primary/90 text-slate-900 font-bold px-6 py-2.5 rounded-lg transition-all shadow-lg shadow-primary/20">
+                Planear Viaje
+            </button>
+</div>
+</div>
+</nav>
+<section class="relative h-[90vh] flex items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Montaña Illimani" class="w-full h-full object-cover" data-alt="Stunning aerial view of Mount Illimani at sunset" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuUL5juUbxDl6I3HXedtbBPzxBEz8d1pgoIMfcKWsl3aM98L4c4x3qUDdzza8-2_u_g8J5gpmCrou6AmVGmEvFZfQscFHSDA0TgQcQzozw7ipmHRbTUx7w2TBRcSiEyEJOK7EDiTB9rIqem1i2Xz0uSYvOxnQ_IxivY7jzmZd5R2Rffo4nhEcmny1JjxASC_eFrchROdnnTrt4KVIzfobVpfYbFINr2MMlDctWnhFo9VfnJd0PKyYdxqygljBus0JffcJlQCMCA3c"/>
+<div class="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background-light dark:to-background-dark"></div>
+</div>
+<div class="relative z-10 w-full max-w-5xl px-6 text-center">
+<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 drop-shadow-xl">
+            Descubre la <span class="text-primary">Maravilla</span> de La Paz
+        </h1>
+<p class="text-xl text-white/90 mb-12 max-w-2xl mx-auto drop-shadow-md">
+            Vive la experiencia en la capital administrativa más alta del mundo, donde las tradiciones ancestrales se encuentran con paisajes montañosos impresionantes.
+        </p>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-2xl flex flex-col md:flex-row gap-4 items-center">
+<div class="flex-1 w-full text-left px-4 py-2 border-r border-slate-100 dark:border-slate-800">
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Destino</label>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary">location_on</span>
+<input class="w-full border-none focus:ring-0 bg-transparent text-slate-800 dark:text-white font-medium" placeholder="¿A dónde vas?" type="text"/>
+</div>
+</div>
+<div class="flex-1 w-full text-left px-4 py-2 border-r border-slate-100 dark:border-slate-800">
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Cuándo</label>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary">calendar_today</span>
+<input class="w-full border-none focus:ring-0 bg-transparent text-slate-800 dark:text-white font-medium" placeholder="Agregar fechas" type="text"/>
+</div>
+</div>
+<div class="flex-1 w-full text-left px-4 py-2">
+<label class="block text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Personas</label>
+<div class="flex items-center gap-2">
+<span class="material-icons text-primary">group</span>
+<input class="w-full border-none focus:ring-0 bg-transparent text-slate-800 dark:text-white font-medium" placeholder="Pasajeros" type="text"/>
+</div>
+</div>
+<button class="w-full md:w-auto bg-primary text-slate-900 font-bold px-10 py-4 rounded-lg flex items-center justify-center gap-2 hover:brightness-110 transition-all">
+<span class="material-icons">search</span> Buscar
+            </button>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6 -mt-16 relative z-20">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+<a class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex flex-col items-center group hover:border-primary transition-all" href="#">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+<span class="material-icons text-primary group-hover:text-white">landscape</span>
+</div>
+<span class="font-bold">Naturaleza</span>
+</a>
+<a class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex flex-col items-center group hover:border-primary transition-all" href="#">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+<span class="material-icons text-primary group-hover:text-white">apartment</span>
+</div>
+<span class="font-bold">Vida Urbana</span>
+</a>
+<a class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex flex-col items-center group hover:border-primary transition-all" href="#">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+<span class="material-icons text-primary group-hover:text-white">restaurant</span>
+</div>
+<span class="font-bold">Gastronomía</span>
+</a>
+<a class="bg-white dark:bg-slate-900 p-6 rounded-xl shadow-lg border border-slate-100 dark:border-slate-800 flex flex-col items-center group hover:border-primary transition-all" href="#">
+<div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary transition-colors">
+<span class="material-icons text-primary group-hover:text-white">history_edu</span>
+</div>
+<span class="font-bold">Cultura</span>
+</a>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6 py-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl font-bold mb-2">Destinos Destacados</h2>
+<p class="text-slate-500">Sitios imperdibles para tu primer viaje a La Paz</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+            Ver Todos <span class="material-icons">arrow_forward</span>
+</a>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md group hover:-translate-y-2 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Valle de la Luna" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Arid rock formations in Moon Valley Bolivia" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTOyrfXt3DYaYuVTmKzuE2_hOpt7h5hSA7DRqfYTMB9E-TM46V9DDGF283VXvBnpLA-3OZ8nFb-UvcvcKjTL1TMpa_VGyyiDpPrldm6rh2BaWmwNqTEbooiuhuJgziCoUDfLl9eDSsm_gKdfM0b0ZyPPVvx0eyuo_sLF-_EQLUZ4T-bJ82cNkxJSP2a8gbaSgsE0z4AtACGlmyhJUZ5M4dGooOXwfIr8sYatJgA_Vji6_YHrEkftXR7ckAZ-eHaLywtWDnY_ft1Nc"/>
+<div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-bold shadow-sm">
+                    Naturaleza
+                </div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Valle de la Luna</h3>
+<p class="text-slate-500 text-sm mb-4">Paisajes lunares a solo 10 kilómetros del centro de la ciudad. Un laberinto de formaciones de arcilla.</p>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white font-bold rounded-lg transition-colors">
+                    Explorar Más
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md group hover:-translate-y-2 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Copacabana" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Lake Titicaca shoreline with colorful boats" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVVbk_0zGFcqLMjewnFt-DB2QGIgmnq0aNW1QOonWkhU1VmztaIBfUCvOtS8bmcYHiud1vyhTSydTy6qA2q8TZYLGPXa_dgwCAFQZ-dnKFv2NnulWy1DJpoqDzHRUMm3UaEVFksbQrQlIDzYQGIY9bjpQ9W68Tev4hqP_E7r09hsPU1NXTSKIm52o1syQQVzEc6v86s4Z-ayeJZQscfkeYEubwmtCW1n3fSrI5hMuHMxCO27EsVl0RoBMN1iSE12-zykES_csZj6o"/>
+<div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-bold shadow-sm">
+                    Lago Titicaca
+                </div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Copacabana</h3>
+<p class="text-slate-500 text-sm mb-4">Puerta de entrada a la Isla del Sol, este encantador pueblo costero está impregnado de historia espiritual.</p>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white font-bold rounded-lg transition-colors">
+                    Explorar Más
+                </button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 rounded-xl overflow-hidden shadow-md group hover:-translate-y-2 transition-all">
+<div class="relative h-64 overflow-hidden">
+<img alt="Tiwanaku" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Ancient stone ruins of Tiwanaku empire" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRyKlOOa5ckfFlEeA_D-32fXpaKa-GGEBYNQmooEl3ePvuCYy7CMhItrxk7bC7_JW_SIA0m8ccqjNiHphrF6maci11n8kzvaE3_KIXGbTAf4MHHBJJKN2x-VvtWkK2AVxYzfgTJZlQ0L-Z6x2hqtR888Jp1oeBU0HTprFiT0S63sPGx4lyhPOYmScaFEyg05RzUpFk4__cKcJ86YtLO9iapiMYGEyWxRtdh_RhRqRxWWpXvJXpX2WjRXUU59mAP_oWezi_aDwyFfw"/>
+<div class="absolute top-4 right-4 bg-white/90 px-3 py-1 rounded-full text-sm font-bold shadow-sm">
+                    Historia
+                </div>
+</div>
+<div class="p-6">
+<h3 class="text-xl font-bold mb-2">Ruinas de Tiwanaku</h3>
+<p class="text-slate-500 text-sm mb-4">Antiguo sitio arqueológico anterior a los Incas. Patrimonio de la Humanidad por la UNESCO.</p>
+<button class="w-full py-2 bg-slate-100 dark:bg-slate-800 hover:bg-primary hover:text-white font-bold rounded-lg transition-colors">
+                    Explorar Más
+                </button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-primary/5 py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl font-bold mb-2">Hoteles Destacados</h2>
+<p class="text-slate-500">Descansa con comodidad en las alturas de los Andes</p>
+</div>
+<a class="text-primary font-bold flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                Ver Todos <span class="material-icons">arrow_forward</span>
+</a>
+</div>
+<div class="grid md:grid-cols-4 gap-6">
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<img alt="Hotel de Lujo" class="w-full h-48 object-cover rounded-lg mb-4" data-alt="Luxury hotel room with mountain view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-OH4_GT9Pcf2NfVOOhGHnHUXGxH5DJ25mpT_qqwfvEg4Bq-_oQl8eoVSg01_xxXQ_BTHlB8mX8bNlA8feSFX0dhow6Il4dlZJlR_pceWNbD2UU-Rz2FHXUErcuIjab4FOY6gIX8uI-BecL4czoV4N-wZp6fmMa-mxMervZeBPQkCdpV8jlLAOlnjcYO0dSCEey9NUcKahFJacul9E1jpPcGgtyntnLzWoh0ttP1uBjeMOXLjupAcdcKRyXEjSigjQ-2OhxSdev6s"/>
+<div class="flex items-center gap-1 text-orange-400 mb-2">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="text-slate-400 text-xs ml-1">(4.9)</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Stannum Boutique Hotel</h4>
+<p class="text-sm text-slate-500 mb-4">Estilo sofisticado en Sopocachi</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$120<span class="text-slate-400 font-normal">/noche</span></span>
+<button class="text-primary hover:text-slate-900 transition-colors">
+<span class="material-icons">favorite_border</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<img alt="Hotel Boutique" class="w-full h-48 object-cover rounded-lg mb-4" data-alt="Elegant boutique hotel interior courtyard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOj3gZr4LCl_FaURvZgEMASJ5yE4Jw54LLQ1l0lRqib-c8V4-FHjDOni0Ilv9Pyrv3OFWMV-zYORdQg8gXy-uonFmMIy4iz7J87oZO5LPcZx0PEKfAY7_aM3IXX-zp77ZiitxbpPCK4qfSrD6bagRo4g46TXNo70Hjw02m8yjhnyYycJj9Oku3U3RKdkdyMbqjD1jIYyNlda4kSX3R-QC4xpQYLXmm2qxFvgEKE73vGzkMNXMN7j6VPljp3OzxUPQmCfYLLUXW788"/>
+<div class="flex items-center gap-1 text-orange-400 mb-2">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_half</span>
+<span class="text-slate-400 text-xs ml-1">(4.7)</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Atix Hotel</h4>
+<p class="text-sm text-slate-500 mb-4">Lujo enfocado en el arte en la Zona Sur</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$155<span class="text-slate-400 font-normal">/noche</span></span>
+<button class="text-primary hover:text-slate-900 transition-colors">
+<span class="material-icons">favorite_border</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<img alt="Hotel Histórico" class="w-full h-48 object-cover rounded-lg mb-4" data-alt="Historic building hotel entrance with archways" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6hT8l8xfTGqiPks6OF-TpDRRnPFZMd6rnS4u7ZuNgCTsmn4nQxWzU2BljmCEq5_uWMfMBxe6gWBlSscQOBtWcGS_t3GiE8Z9PmS0fXu5ueCUa0ayxiZXUmocmQF4BGAVi7AZGoB_Lbxs_gEuvdTw-b5b5y8-SnSCnM2Joa1J64dT04qrunQlF3uY5BQfuc9FZcrI8Jb-l0H8RbUEN1CAAcgPG9ZX14eUwmHPou205u0D2kfO1qHujjfv7ooq76GDXjSbngoOinTg"/>
+<div class="flex items-center gap-1 text-orange-400 mb-2">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="text-slate-400 text-xs ml-1">(4.5)</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Hotel Rosario</h4>
+<p class="text-sm text-slate-500 mb-4">Encanto tradicional en el Mercado de las Brujas</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$85<span class="text-slate-400 font-normal">/noche</span></span>
+<button class="text-primary hover:text-slate-900 transition-colors">
+<span class="material-icons">favorite_border</span>
+</button>
+</div>
+</div>
+<div class="bg-white dark:bg-slate-900 p-4 rounded-xl shadow-sm hover:shadow-xl transition-shadow border border-slate-100 dark:border-slate-800">
+<img alt="Hotel Moderno" class="w-full h-48 object-cover rounded-lg mb-4" data-alt="Modern hotel facade with glass windows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIRJMKYrRXqkkdaNneJ94d8qphXK7nCYjPdiTlpxn3A36E7gtWtjd3TKPmKmgaBg_9kCDLmPQo2-dibi7DEoeLF0ijmAvyLWm_fV_t1bKeRMyRrgQMghwsAbH249thlcA0YlDlMQvNCoQdWDRJnHjZ2Sz5tOTCm4wZ7oPTn8Qf1zo0FztuX_je7U1LlmRt-SEUhsBUxfttxjxr5D_5RYfcbV7dO14o1EQBJOucuyBUebFKRMfbD4_xLbvQqB3HUoiamBoC-o6FTLI"/>
+<div class="flex items-center gap-1 text-orange-400 mb-2">
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star</span>
+<span class="material-icons text-sm">star_border</span>
+<span class="text-slate-400 text-xs ml-1">(4.2)</span>
+</div>
+<h4 class="font-bold text-lg mb-1">Casa Grande Hotel</h4>
+<p class="text-sm text-slate-500 mb-4">Estilo contemporáneo y amenidades premium</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-bold">$140<span class="text-slate-400 font-normal">/noche</span></span>
+<button class="text-primary hover:text-slate-900 transition-colors">
+<span class="material-icons">favorite_border</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6 py-24">
+<div class="flex justify-between items-end mb-12">
+<div>
+<h2 class="text-3xl font-bold mb-2">Actividades Populares</h2>
+<p class="text-slate-500">Aventuras seleccionadas para todo tipo de exploradores</p>
+</div>
+</div>
+<div class="grid md:grid-cols-2 gap-8">
+<div class="group relative rounded-2xl overflow-hidden h-[400px]">
+<img alt="Tour Camino de la Muerte" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Mountain biker on a narrow cliffside road" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALfpxLsQl34QVb9csVBx9jSXhI8Wq0SFFIbwr6s01JxN5DU5bwsdG-3j-JmITTLIWZASNTIwcFNRqBhKVvap02G79_EpocPyOFl2pq2y-_7OOAPzEup_ZlP_LCpCnkdpOHT1rAXAil9rfaOtaOk2GoFolpZtxtYFxVmvqnWqF6Q23Q_9GIbpYUpDZJ9hxRH84qalBHy93yp7WSINhMUKtjpQ1XOicKXNL7CNU1ByP9EUGK74QyVSvu-9H8XgrCXs8Hl_sGs-9Q4nE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex justify-between items-end">
+<div>
+<span class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">AVENTURA</span>
+<h3 class="text-3xl font-bold text-white mb-2">Ciclismo en el Camino de la Muerte</h3>
+<div class="flex items-center gap-4 text-white/80">
+<span class="flex items-center gap-1"><span class="material-icons text-sm">schedule</span> Día Completo</span>
+<span class="flex items-center gap-1"><span class="material-icons text-sm">trending_up</span> Difícil</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-white/60 text-sm">Desde</p>
+<p class="text-white text-3xl font-bold">$75</p>
+<button class="mt-4 bg-primary text-slate-900 px-6 py-2 rounded-lg font-bold hover:brightness-110 transition-all">Reservar</button>
+</div>
+</div>
+</div>
+</div>
+<div class="group relative rounded-2xl overflow-hidden h-[400px]">
+<img alt="Tour Teleférico" class="absolute inset-0 w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Yellow cable car gliding over La Paz city" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrkVonx6cAkrX4NiC302zaeCodG1GAO-_uYRxp0GH19qBRiEhkPKt9FNMCtYd5qYP5X3hM9I77tDWA4_ErNl5n2q6J9qNxP4dl5D7u_pr5EbH6fL4h8JQOM4BsI-I8lzaSO7omFSk96_zcQX0x7NJ65dAbozuCVc8TmuSMyZKnzL_6lizJxSmCPoJg_8DUog3vVr3JQf3NCt1eibDF-QmXQvBA2hR3Kq5dDP0pklvJ_Ds5rC8ObpYfHUqgUeZJkHpbJcfPKzUWbfw"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8 w-full">
+<div class="flex justify-between items-end">
+<div>
+<span class="bg-primary text-slate-900 px-3 py-1 rounded-full text-xs font-bold mb-4 inline-block">CULTURA</span>
+<h3 class="text-3xl font-bold text-white mb-2">Tour Teleférico y Mercados</h3>
+<div class="flex items-center gap-4 text-white/80">
+<span class="flex items-center gap-1"><span class="material-icons text-sm">schedule</span> 4 Horas</span>
+<span class="flex items-center gap-1"><span class="material-icons text-sm">trending_up</span> Fácil</span>
+</div>
+</div>
+<div class="text-right">
+<p class="text-white/60 text-sm">Desde</p>
+<p class="text-white text-3xl font-bold">$35</p>
+<button class="mt-4 bg-primary text-slate-900 px-6 py-2 rounded-lg font-bold hover:brightness-110 transition-all">Reservar</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-6 py-24 border-t border-slate-200 dark:border-slate-800">
+<div class="grid md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="text-4xl font-bold mb-6">¿Por qué visitar la <br/><span class="text-primary text-5xl">Ciudad del Cielo?</span></h2>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-icons text-primary">landscape</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Topografía Única</h4>
+<p class="text-slate-500">Construida en una cuenca gigante, la altitud única de la ciudad ofrece vistas que literalmente te quitarán el aliento.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-icons text-primary">auto_awesome</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Fusión Cultural</h4>
+<p class="text-slate-500">Desde la vestimenta tradicional de las Cholitas hasta la arquitectura moderna, sé testigo de una vibrante mezcla de las culturas Aymara y Española.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+<span class="material-icons text-primary">bolt</span>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-1">Aventura Moderna</h4>
+<p class="text-slate-500">Viaja en el sistema de teleféricos más largo del mundo y disfruta de actividades de alta adrenalina en los cercanos Andes.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="aspect-square bg-primary/20 absolute -top-4 -right-4 w-full h-full rounded-2xl -z-10"></div>
+<img alt="Paisaje Urbano de La Paz" class="rounded-2xl shadow-2xl object-cover h-[500px] w-full" data-alt="Colorful buildings stacked on a steep hillside in La Paz" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBb48gsKdWPdmWzviGMgCZ7Kdk1Ag_xmry6vNzVbrocck8gK8D_cXRJkIET6N0916UoTe-T-TeYFmfgkAoQ7VjuCC-Lqv9jUyFFiD8VrkmjJhDqHnMV97gpP4CjcQ2Lz-x_rQQXp3vyDhhuMDSIWjzrLmNyvIKwhg7mXZqZshEbN1M4MRA94Sb4bORTqQjm7IvRbCksQZ3kErNI087gz4mBb2iGVXYuyvdyQCQGVPvA8rN8b4OwER8KpStCuYBQjny-c-Gu2Wbp74"/>
+</div>
+</div>
+</section>
+<footer class="bg-slate-900 text-white pt-20 pb-10">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid md:grid-cols-4 gap-12 mb-16">
+<div>
+<div class="flex items-center gap-2 mb-6">
+<div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+<span class="material-icons text-slate-900">explore</span>
+</div>
+<span class="text-2xl font-bold tracking-tight">La Paz</span>
+</div>
+<p class="text-slate-400 mb-6">
+                    Tu portal oficial para vivir el corazón de Bolivia. Desde aventuras en las alturas hasta inmersiones culturales profundas.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all" href="#">
+<i class="material-icons">facebook</i>
+</a>
+<a class="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all" href="#">
+<i class="material-icons">alternate_email</i>
+</a>
+</div>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6">Destinos</h4>
+<ul class="space-y-3 text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Valle de la Luna</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Lago Titicaca</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">P.N. Sajama</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Ruinas de Tiwanaku</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Montaña Illimani</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6">Soporte</h4>
+<ul class="space-y-3 text-slate-400">
+<li><a class="hover:text-primary transition-colors" href="#">Consejos de Viaje</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Requisitos de Visa</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Salud y Seguridad</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Contáctanos</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Preguntas Frecuentes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-lg mb-6">Boletín</h4>
+<p class="text-slate-400 mb-4">Recibe los últimos consejos de viaje y ofertas exclusivas.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-slate-800 border-none rounded-lg px-4 py-3 text-white focus:ring-1 focus:ring-primary" placeholder="Tu correo electrónico" type="email"/>
+<button class="bg-primary text-slate-900 font-bold py-3 rounded-lg hover:brightness-110 transition-all">
+                        Suscribirse
+                    </button>
+</div>
+</div>
+</div>
+<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+<p>© 2024 Portal de Turismo de La Paz. Todos los derechos reservados.</p>
+<div class="flex gap-6">
+<a class="hover:text-white" href="#">Política de Privacidad</a>
+<a class="hover:text-white" href="#">Términos de Servicio</a>
+<a class="hover:text-white" href="#">Mapa del Sitio</a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>
