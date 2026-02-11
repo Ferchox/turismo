@@ -75,21 +75,22 @@ const Home = () => {
             <section className="max-w-7xl mx-auto px-6 mt-12 md:-mt-20 relative z-20">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     {[
-                        { icon: 'landscape', label: 'Altiplano', color: 'bg-slate-500' },
-                        { icon: 'park', label: 'Amazonía', color: 'bg-emerald-500' },
-                        { icon: 'water', label: 'Valles', color: 'bg-blue-500' },
-                        { icon: 'temple_hindu', label: 'Ciudades', color: 'bg-purple-500' },
+                        { icon: 'landscape', label: 'Altiplano', path: '/explore?cat=Altiplano', color: 'bg-slate-500' },
+                        { icon: 'park', label: 'Amazonía', path: '/explore?cat=Amazonia', color: 'bg-emerald-500' },
+                        { icon: 'water', label: 'Valles', path: '/explore?cat=Valles', color: 'bg-blue-500' },
+                        { icon: 'temple_hindu', label: 'Ciudades', path: '/explore?cat=Ciudad', color: 'bg-purple-500' },
                     ].map((cat, i) => (
-                        <motion.div
-                            key={i}
-                            whileHover={{ y: -10 }}
-                            className="bg-white dark:bg-slate-950 p-8 rounded-3xl shadow-xl flex flex-col items-center group cursor-pointer border border-primary/5 hover:border-primary/40 transition-all"
-                        >
-                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 shadow-lg ${cat.color}/20`}>
-                                <span className={`material-icons text-3xl group-hover:animate-pulse`}>{cat.icon}</span>
-                            </div>
-                            <span className="font-bold text-lg text-slate-800 dark:text-white">{cat.label}</span>
-                        </motion.div>
+                        <Link key={i} to={cat.path}>
+                            <motion.div
+                                whileHover={{ y: -10 }}
+                                className="bg-white dark:bg-slate-950 p-8 rounded-3xl shadow-xl flex flex-col items-center group cursor-pointer border border-primary/5 hover:border-primary/40 transition-all h-full"
+                            >
+                                <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 shadow-lg ${cat.color}/20`}>
+                                    <span className={`material-icons text-3xl group-hover:animate-pulse`}>{cat.icon}</span>
+                                </div>
+                                <span className="font-bold text-lg text-slate-800 dark:text-white">{cat.label}</span>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
             </section>

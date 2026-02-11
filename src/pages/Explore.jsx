@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Filter, Search as SearchIcon, MapPin, Star, ArrowRight, X } from 'lucide-react'
@@ -8,15 +8,30 @@ const Explore = () => {
     const [searchParams] = useSearchParams()
     const initialCategory = searchParams.get('cat') || 'Todos'
 
-    const [selectedCategory, setSelectedCategory] = useState(initialCategory)
+    // Normalize category to match our internal category names if needed
+    const normalizedInitial = initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1)
+
+    const [selectedCategory, setSelectedCategory] = useState(normalizedInitial)
     const [searchQuery, setSearchQuery] = useState('')
 
-    const categories = ['Todos', 'Naturaleza', 'Lago Titicaca', 'Historia', 'Aventura', 'Ciudad', 'Montaña']
+    // Synchronize with URL if it changes while on the page
+    useEffect(() => {
+        const cat = searchParams.get('cat')
+        if (cat) {
+            setSelectedCategory(cat.charAt(0).toUpperCase() + cat.slice(1))
+        } else {
+            setSelectedCategory('Todos')
+        }
+    }, [searchParams])
+
+    const categories = ['Todos', 'Naturaleza', 'Lago', 'Historia', 'Aventura', 'Ciudad', 'Transporte']
 
     const filteredDestinations = destinations.filter(dest => {
-        const matchesCategory = selectedCategory === 'Todos' || dest.category === selectedCategory
-        const matchesSearch = dest.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-            dest.location.toLowerCase().includes(searchQuery.toLowerCase())
+        const matchesCategory = selectedCategory === 'Todos' ||
+            dest.category.toLowerCase() === selectedCategory.toLowerCase()
+        const matchesSearch = (dest.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (dest.location || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            (dest.department || '').toLowerCase().includes(searchQuery.toLowerCase())
         return matchesCategory && matchesSearch
     })
 
@@ -51,9 +66,9 @@ const Explore = () => {
                                         <button
                                             key={cat}
                                             onClick={() => setSelectedCategory(cat)}
-                                            className={`text-left px-4 py-3 rounded-xl transition-all font-bold ${selectedCategory === cat
-                                                ? 'bg-primary text-slate-900 shadow-lg shadow-primary/20'
-                                                : 'hover:bg-primary/5 text-slate-600 dark:text-slate-400'
+                                            className={`text-left px-4 py-3 rounded-xl transition-all font-bold ${selectedCategory.toLowerCase() === cat.toLowerCase()
+                                                    ? 'bg-primary text-slate-900 shadow-lg shadow-primary/20'
+                                                    : 'hover:bg-primary/5 text-slate-600 dark:text-slate-400'
                                                 }`}
                                         >
                                             {cat}
@@ -65,29 +80,13 @@ const Explore = () => {
                             <div>
                                 <h4 className="font-black text-slate-400 uppercase tracking-widest text-[10px] mb-4">Región</h4>
                                 <div className="space-y-3">
-                                    {['Altiplano', 'Yungas', 'Cordillera', 'Valles'].map(region => (
+                                    {['Altiplano', 'Amazonía', 'Valles', 'Llanos'].map(region => (
                                         <label key={region} className="flex items-center gap-3 text-sm font-bold cursor-pointer group">
                                             <input type="checkbox" className="w-5 h-5 rounded-lg border-slate-200 dark:border-slate-800 text-primary focus:ring-primary bg-transparent" />
                                             <span className="group-hover:text-primary transition-colors">{region}</span>
                                         </label>
                                     ))}
                                 </div>
-                            </div>
-                        </div>
-
-                        <div className="relative rounded-3xl overflow-hidden h-64 group">
-                            <img
-                                src="https://images.unsplash.com/photo-1549419163-9524e9956417?q=80&w=1974&auto=format&fit=crop"
-                                alt="Promo"
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                            />
-                            <div className="absolute inset-0 bg-primary/40 mix-blend-multiply"></div>
-                            <div className="absolute inset-0 p-8 flex flex-col justify-end text-white">
-                                <p className="text-xs font-black uppercase tracking-[0.2em] mb-2">Oferta Especial</p>
-                                <h4 className="text-2xl font-black leading-tight mb-4">Ahorra 20% en Tours al Lago</h4>
-                                <button className="bg-white text-slate-900 px-6 py-2 rounded-xl text-sm font-black w-fit hover:scale-105 transition-transform">
-                                    Ver Cupón
-                                </button>
                             </div>
                         </div>
                     </aside>
@@ -117,57 +116,57 @@ const Explore = () => {
                         </div>
 
                         {filteredDestinations.length > 0 ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                                 {filteredDestinations.map((dest, i) => (
                                     <motion.div
                                         key={dest.id}
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ duration: 0.3, delay: i * 0.05 }}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.4, delay: i * 0.1 }}
                                         className="card group h-full flex flex-col"
                                     >
                                         <div className="relative aspect-[4/3] overflow-hidden">
                                             <img
-                                                src={dest.image}
+                                                src={dest.image || 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b'}
                                                 alt={dest.name}
                                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                             />
-                                            <button className="absolute top-6 right-6 w-10 h-10 bg-white/90 backdrop-blur text-slate-400 hover:text-red-500 rounded-full flex items-center justify-center shadow-lg transition-colors">
-                                                <span className="material-icons text-xl">favorite_border</span>
-                                            </button>
-                                            <div className="absolute bottom-6 left-6 flex gap-2">
-                                                <span className="bg-primary/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-black uppercase text-slate-900 shadow-sm">
+                                            <div className="absolute top-4 left-4 flex gap-2">
+                                                <span className="bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase text-slate-900 shadow-sm">
+                                                    {dest.department}
+                                                </span>
+                                            </div>
+                                            <div className="absolute bottom-4 left-4">
+                                                <span className="bg-primary/90 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase text-slate-900 shadow-sm">
                                                     {dest.category}
                                                 </span>
                                             </div>
                                         </div>
-                                        <div className="p-8 flex-grow flex flex-col">
-                                            <div className="flex items-center gap-1 text-slate-400 text-[10px] font-black uppercase tracking-widest mb-3">
+                                        <div className="p-6 flex-grow flex flex-col">
+                                            <div className="flex items-center gap-1 text-slate-400 text-[10px] font-black uppercase tracking-widest mb-2">
                                                 <MapPin size={12} className="text-primary" />
                                                 {dest.location}
                                             </div>
-                                            <h3 className="text-2xl font-black mb-3 group-hover:text-primary transition-colors line-clamp-1">
+                                            <h3 className="text-xl font-black mb-2 group-hover:text-primary transition-colors line-clamp-1">
                                                 {dest.name}
                                             </h3>
-                                            <div className="flex items-center gap-1 mb-6">
+                                            <div className="flex items-center gap-1 mb-4">
                                                 <Star size={14} className="fill-orange-400 text-orange-400" />
                                                 <span className="font-bold text-sm">{dest.rating}</span>
-                                                <span className="text-slate-400 text-xs ml-1">(24 reviews)</span>
                                             </div>
-                                            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium mb-8 flex-grow line-clamp-2">
+                                            <p className="text-slate-500 dark:text-slate-400 text-sm mb-6 flex-grow line-clamp-2">
                                                 {dest.shortDescription}
                                             </p>
-                                            <div className="flex items-center justify-between pt-6 border-t border-slate-100 dark:border-slate-800">
+                                            <div className="flex items-center justify-between pt-4 border-t border-slate-100 dark:border-slate-800">
                                                 <div className="flex flex-col">
                                                     <span className="text-xs text-slate-400 font-bold uppercase tracking-widest">Desde</span>
-                                                    <span className="text-2xl font-black text-slate-900 dark:text-white">${dest.price}</span>
+                                                    <span className="text-xl font-black text-slate-900 dark:text-white">${dest.price}</span>
                                                 </div>
                                                 <Link
                                                     to={`/destination/${dest.id}`}
-                                                    className="w-14 h-14 bg-primary text-slate-900 rounded-2xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-110 active:scale-95 transition-all"
+                                                    className="w-12 h-12 bg-primary text-slate-900 rounded-xl flex items-center justify-center shadow-lg shadow-primary/20 hover:scale-110 active:scale-95 transition-all"
                                                 >
-                                                    <ArrowRight size={24} />
+                                                    <ArrowRight size={20} />
                                                 </Link>
                                             </div>
                                         </div>
@@ -179,8 +178,8 @@ const Explore = () => {
                                 <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-8">
                                     <X size={40} className="text-slate-300" />
                                 </div>
-                                <h3 className="text-2xl font-black mb-2">No se encontraron destinos</h3>
-                                <p className="text-slate-500">Intenta con otra categoría o término de búsqueda.</p>
+                                <h3 className="text-2xl font-black mb-2">Sin resultados</h3>
+                                <p className="text-slate-500">No encontramos destinos que coincidan con tu búsqueda.</p>
                             </div>
                         )}
                     </div>
