@@ -72,8 +72,8 @@ const Home = () => {
             </section>
 
             {/* Categories Section */}
-            <section className="max-w-7xl mx-auto px-6 -mt-20 relative z-20">
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <section className="max-w-7xl mx-auto px-6 mt-12 md:-mt-20 relative z-20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
                     {[
                         { icon: 'landscape', label: 'Altiplano', color: 'bg-slate-500' },
                         { icon: 'park', label: 'Amazonía', color: 'bg-emerald-500' },

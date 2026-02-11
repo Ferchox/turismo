@@ -22,8 +22,11 @@ const Navbar = () => {
         { name: 'Alojamiento', path: '/explore?cat=alojamiento' },
     ]
 
+    const isHomePage = location.pathname === '/'
+    const showSearchStyles = isScrolled || !isHomePage
+
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg h-16' : 'bg-transparent h-20'
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${showSearchStyles ? 'bg-white/80 dark:bg-slate-900/80 backdrop-blur-md shadow-lg h-16' : 'bg-transparent h-20'
             }`}>
             <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
                 <div className="flex items-center gap-10">
@@ -31,7 +34,7 @@ const Navbar = () => {
                         <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-lg shadow-primary/30 group-hover:scale-110 transition-transform">
                             <span className="material-icons text-white">terrain</span>
                         </div>
-                        <span className={`text-xl font-bold tracking-tight uppercase ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-white'
+                        <span className={`text-xl font-bold tracking-tight uppercase ${showSearchStyles ? 'text-slate-900 dark:text-white' : 'text-white'
                             }`}>
                             Aventura <span className="text-primary">Bolivia</span>
                         </span>
@@ -42,7 +45,7 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 to={link.path}
-                                className={`text-sm font-semibold hover:text-primary transition-colors ${isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-white/90'
+                                className={`text-sm font-semibold hover:text-primary transition-colors ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white/90'
                                     } ${location.pathname === link.path ? 'text-primary' : ''}`}
                             >
                                 {link.name}
@@ -52,11 +55,11 @@ const Navbar = () => {
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-white'
+                    <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'
                         }`}>
                         <ShoppingCart size={20} />
                     </button>
-                    <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${isScrolled ? 'text-slate-600 dark:text-slate-300' : 'text-white'
+                    <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'
                         }`}>
                         <User size={20} />
                     </button>
@@ -64,7 +67,7 @@ const Navbar = () => {
                         Planear Viaje
                     </button>
                     <button
-                        className={`md:hidden p-2 rounded-lg ${isScrolled ? 'text-slate-900 dark:text-white' : 'text-white'}`}
+                        className={`md:hidden p-2 rounded-lg ${showSearchStyles ? 'text-slate-900 dark:text-white' : 'text-white'}`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X /> : <Menu />}
