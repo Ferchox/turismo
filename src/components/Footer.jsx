@@ -4,10 +4,10 @@ import { Facebook, Instagram, Twitter, Mail } from 'lucide-react'
 
 const Footer = () => {
     return (
-        <footer className="bg-slate-950 text-white pt-24 pb-12">
+        <footer className="bg-slate-950 text-white pt-12 pb-8">
             <div className="max-w-7xl mx-auto px-6">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
-                    <div className="col-span-1 md:col-span-1">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12 items-start">
+                    <div>
                         <Link to="/" className="flex items-center gap-2 mb-8">
                             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center">
                                 <span className="material-icons text-white">terrain</span>
@@ -43,39 +43,19 @@ const Footer = () => {
                     </div>
 
                     <div>
-                        <h4 className="font-bold text-lg mb-8">Destinos Populares</h4>
-                        <ul className="space-y-4 text-slate-400">
-                            {['Salar de Uyuni', 'Lago Titicaca', 'P.N. Toro Toro', 'Tiwanaku', 'Sucre'].map(item => (
-                                <li key={item}>
-                                    <Link to="/explore" className="hover:text-primary transition-colors">{item}</Link>
-                                </li>
-                            ))}
+                        <h4 className="font-bold text-lg mb-8">Horarios de atención</h4>
+                        <ul className="space-y-3 text-slate-400">
+                            <li><strong className="text-white">Horario:</strong> Lun – Vie: 09:00 – 18:30</li>
+                            <li><strong className="text-white">Dirección:</strong> Av. Rafael Pabón, Zona Irpavi, La Paz</li>
+                            <li><strong className="text-white">Soporte:</strong> 24/7 por chat y correo</li>
+                            <li><strong className="text-white">Tel:</strong> <a href="tel:+59170534180" className="hover:text-primary transition-colors">+591 70534180</a></li>
+                            <li><strong className="text-white">Email:</strong> <a href="mailto:aventura.bolivia@gmail.com" className="hover:text-primary transition-colors">aventura.bolivia@gmail.com</a></li>
                         </ul>
-                    </div>
-
-                    <div>
-                        <h4 className="font-bold text-lg mb-8">Boletín Informativo</h4>
-                        <p className="text-slate-400 mb-6">Recibe ofertas exclusivas y consejos de viaje en tu correo.</p>
-                        <div className="flex flex-col gap-3">
-                            <input
-                                type="email"
-                                placeholder="Tu correo electrónico"
-                                className="bg-slate-900 border border-slate-800 rounded-xl px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-primary shadow-inner"
-                            />
-                            <button className="btn-primary w-full">
-                                Suscribirse
-                            </button>
-                        </div>
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-6 text-sm text-slate-500">
-                    <p>© 2024 Aventura Bolivia. Todos los derechos reservados.</p>
-                    <div className="flex gap-8">
-                        <a href="#" className="hover:text-white transition-colors">Privacidad</a>
-                        <a href="#" className="hover:text-white transition-colors">Términos</a>
-                        <a href="#" className="hover:text-white transition-colors">Cookies</a>
-                    </div>
+                <div className="pt-8 border-t border-slate-900 text-center">
+                    <p className="text-sm text-slate-500">© 2024 Aventura Bolivia. Todos los derechos reservados.</p>
                 </div>
             </div>
         </footer>

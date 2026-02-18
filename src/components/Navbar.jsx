@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, ShoppingCart, User, Search, Compass } from 'lucide-react'
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
     const location = useLocation()
+    const navigate = useNavigate()
 
     useEffect(() => {
         const handleScroll = () => {
@@ -15,11 +16,33 @@ const Navbar = () => {
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
 
+    const handleNavClick = (e, sectionId) => {
+        e.preventDefault()
+        setMobileMenuOpen(false)
+        
+        // Si estamos en la página principal, hacer scroll
+        if (location.pathname === '/') {
+            const element = document.getElementById(sectionId)
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+        } else {
+            // Si no, navegar a la página principal y luego hacer scroll
+            navigate('/')
+            setTimeout(() => {
+                const element = document.getElementById(sectionId)
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' })
+                }
+            }, 100)
+        }
+    }
+
     const navLinks = [
-        { name: 'Inicio', path: '/' },
-        { name: 'Explorar', path: '/explore' },
-        { name: 'Destinos', path: '/explore?cat=destinos' },
-        { name: 'Alojamiento', path: '/explore?cat=alojamiento' },
+        { name: 'Inicio', sectionId: 'inicio' },
+        { name: 'Destinos', sectionId: 'destinos' },
+        { name: 'Porque viajar', sectionId: 'nosotros' },
+        { name: 'Contactanos', sectionId: 'contacto' },
     ]
 
     const isHomePage = location.pathname === '/'
@@ -42,23 +65,24 @@ const Navbar = () => {
 
                     <div className="hidden md:flex items-center gap-8">
                         {navLinks.map((link) => (
-                            <Link
+                            <a
                                 key={link.name}
-                                to={link.path}
-                                className={`text-sm font-semibold hover:text-primary transition-colors ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white/90'
-                                    } ${location.pathname === link.path ? 'text-primary' : ''}`}
+                                href={`#${link.sectionId}`}
+                                onClick={(e) => handleNavClick(e, link.sectionId)}
+                                className={`text-sm font-semibold hover:text-primary transition-colors cursor-pointer ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white/90'
+                                    }`}
                             >
                                 {link.name}
-                            </Link>
+                            </a>
                         ))}
                     </div>
                 </div>
 
                 <div className="flex items-center gap-4">
-                    <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'
+                    {/* <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'
                         }`}>
                         <ShoppingCart size={20} />
-                    </button>
+                    </button> */}
                     <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'
                         }`}>
                         <User size={20} />
@@ -79,14 +103,14 @@ const Navbar = () => {
             {mobileMenuOpen && (
                 <div className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800 shadow-2xl p-6 flex flex-col gap-4 animate-fade-in">
                     {navLinks.map((link) => (
-                        <Link
+                        <a
                             key={link.name}
-                            to={link.path}
-                            className="text-lg font-bold text-slate-900 dark:text-white hover:text-primary"
-                            onClick={() => setMobileMenuOpen(false)}
+                            href={`#${link.sectionId}`}
+                            onClick={(e) => handleNavClick(e, link.sectionId)}
+                            className="text-lg font-bold text-slate-900 dark:text-white hover:text-primary cursor-pointer"
                         >
                             {link.name}
-                        </Link>
+                        </a>
                     ))}
                     <button className="btn-primary w-full mt-4">
                         Planear Viaje
