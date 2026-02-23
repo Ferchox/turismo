@@ -7,12 +7,13 @@ import { destinations } from '../data/destinations'
 const Explore = () => {
     const [searchParams] = useSearchParams()
     const initialCategory = searchParams.get('cat') || 'Todos'
+    const initialQuery = searchParams.get('query') || ''
 
     // Normalize category to match our internal category names if needed
     const normalizedInitial = initialCategory.charAt(0).toUpperCase() + initialCategory.slice(1)
 
     const [selectedCategory, setSelectedCategory] = useState(normalizedInitial)
-    const [searchQuery, setSearchQuery] = useState('')
+    const [searchQuery, setSearchQuery] = useState(initialQuery)
 
     // Synchronize with URL if it changes while on the page
     useEffect(() => {
@@ -22,16 +23,30 @@ const Explore = () => {
         } else {
             setSelectedCategory('Todos')
         }
+
+        const queryValue = searchParams.get('query')
+        if (queryValue) {
+            setSearchQuery(queryValue)
+        } else {
+            setSearchQuery('')
+        }
     }, [searchParams])
 
     const categories = ['Todos', 'Naturaleza', 'Lago', 'Historia', 'Aventura', 'Ciudad', 'Transporte']
 
+    const removeAccents = (str) => {
+        return str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
+    }
+
     const filteredDestinations = destinations.filter(dest => {
         const matchesCategory = selectedCategory === 'Todos' ||
             dest.category.toLowerCase() === selectedCategory.toLowerCase()
-        const matchesSearch = (dest.name || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (dest.location || '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-            (dest.department || '').toLowerCase().includes(searchQuery.toLowerCase())
+
+        const normalizedQuery = removeAccents(searchQuery.toLowerCase());
+        const matchesSearch = removeAccents((dest.name || '').toLowerCase()).includes(normalizedQuery) ||
+            removeAccents((dest.location || '').toLowerCase()).includes(normalizedQuery) ||
+            removeAccents((dest.department || '').toLowerCase()).includes(normalizedQuery)
+
         return matchesCategory && matchesSearch
     })
 
@@ -67,8 +82,8 @@ const Explore = () => {
                                             key={cat}
                                             onClick={() => setSelectedCategory(cat)}
                                             className={`text-left px-4 py-3 rounded-xl transition-all font-bold ${selectedCategory.toLowerCase() === cat.toLowerCase()
-                                                    ? 'bg-primary text-slate-900 shadow-lg shadow-primary/20'
-                                                    : 'hover:bg-primary/5 text-slate-600 dark:text-slate-400'
+                                                ? 'bg-primary text-slate-900 shadow-lg shadow-primary/20'
+                                                : 'hover:bg-primary/5 text-slate-600 dark:text-slate-400'
                                                 }`}
                                         >
                                             {cat}
