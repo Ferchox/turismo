@@ -143,8 +143,8 @@ const Destination = () => {
                 </div>
 
                 {/* Booking Sidebar */}
-                <aside className="space-y-8">
-                    <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden sticky top-28">
+                <aside className="space-y-8 sticky top-28 self-start">
+                    <div className="bg-slate-900 text-white p-10 rounded-[2.5rem] shadow-2xl relative overflow-hidden">
                         <div className="absolute top-0 right-0 p-8 opacity-5">
                             <span className="material-icons text-9xl">luggage</span>
                         </div>
@@ -181,20 +181,25 @@ const Destination = () => {
                             <MapPin size={20} className="text-primary" /> Ubicación
                         </h4>
                         <div className="h-64 bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden relative">
-                            <img
-                                src="https://images.unsplash.com/photo-1549419163-9524e9956417?q=80&w=1974&auto=format&fit=crop"
-                                alt="Mini Map"
-                                className="w-full h-full object-cover opacity-60 grayscale"
-                            />
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="bg-primary p-3 rounded-full shadow-2xl animate-bounce">
-                                    <MapPin size={24} className="text-slate-900" />
-                                </div>
-                            </div>
+                            <iframe
+                                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10000!2d0!3d0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s${encodeURIComponent(dest.name + ', ' + dest.location)}!5e0!3m2!1ses!2sbo!4v1700000000000!5m2!1ses!2sbo`}
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+                            ></iframe>
                         </div>
-                        <button className="w-full mt-6 py-4 border-2 border-slate-100 dark:border-slate-800 rounded-2xl font-black text-sm hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+                        <a
+                            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(dest.name + ', ' + dest.location)}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block w-full mt-6 py-4 border-2 border-slate-100 dark:border-slate-800 rounded-2xl font-black text-sm hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors text-center text-slate-900 dark:text-white"
+                        >
                             Abrir en Google Maps
-                        </button>
+                        </a>
                     </div>
                 </aside>
             </div>
