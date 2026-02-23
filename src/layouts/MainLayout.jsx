@@ -2,6 +2,7 @@ import React from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Chatbot from '../components/Chatbot'
 import { useEffect } from 'react'
 
 const ScrollToTop = () => {
@@ -21,6 +22,7 @@ const MainLayout = () => {
                 <Outlet />
             </main>
             <Footer />
+            <Chatbot />
         </div>
     )
 }
