@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { Menu, X, ShoppingCart, User, Search, Compass } from 'lucide-react'
+import GoogleTranslate from './GoogleTranslate'
 
 const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false)
@@ -19,7 +20,7 @@ const Navbar = () => {
     const handleNavClick = (e, sectionId) => {
         e.preventDefault()
         setMobileMenuOpen(false)
-        
+
         // Si estamos en la página principal, hacer scroll
         if (location.pathname === '/') {
             const element = document.getElementById(sectionId)
@@ -78,7 +79,10 @@ const Navbar = () => {
                     </div>
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-2 sm:gap-4">
+                    <div className={showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'}>
+                        <GoogleTranslate />
+                    </div>
                     {/* <button className={`p-2 rounded-full hover:bg-primary/10 transition-colors hidden sm:block ${showSearchStyles ? 'text-slate-600 dark:text-slate-300' : 'text-white'
                         }`}>
                         <ShoppingCart size={20} />
