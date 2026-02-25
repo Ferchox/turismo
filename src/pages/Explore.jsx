@@ -304,6 +304,14 @@ Ejemplo: ["id1", "id2"]
                                     </motion.div>
                                 ))}
                             </div>
+                        ) : semanticLoading ? (
+                            <div className="text-center py-40 animate-pulse">
+                                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-8">
+                                    <Loader2 size={40} className="text-primary animate-spin" />
+                                </div>
+                                <h3 className="text-2xl font-black mb-2 flex justify-center items-center gap-2"><Sparkles size={20} className="text-primary" /> Analizando tu búsqueda...</h3>
+                                <p className="text-slate-500">Nuestra Inteligencia Artificial está buscando las mejores experiencias para ti.</p>
+                            </div>
                         ) : (
                             <div className="text-center py-40">
                                 <div className="w-20 h-20 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-8">
