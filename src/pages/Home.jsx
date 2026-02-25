@@ -7,20 +7,6 @@ import { destinations } from '../data/destinations'
 const Home = () => {
     const navigate = useNavigate()
     const [searchQuery, setSearchQuery] = useState('')
-    const [showSuggestions, setShowSuggestions] = useState(false)
-
-    // Normalize and filter destinations for suggestions
-    const removeAccents = (str) => {
-        return str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
-    }
-
-    const suggestions = destinations.filter(dest => {
-        const query = removeAccents(searchQuery.toLowerCase());
-        if (!query) return false;
-
-        return removeAccents((dest.name || '').toLowerCase()).includes(query) ||
-            removeAccents((dest.department || '').toLowerCase()).includes(query);
-    }).slice(0, 4); // Limit to top 4 suggestions
 
     const handleSearch = (e) => {
         e.preventDefault()
@@ -61,51 +47,29 @@ const Home = () => {
                             Desde el espejo infinito de Uyuni hasta la selvas del Amazonas. Explora el país más diverso del corazón de Sudamérica.
                         </p>
 
-                        <form onSubmit={handleSearch} className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-3 md:p-4 rounded-xl shadow-2xl flex flex-col md:flex-row gap-3 md:gap-4 items-center max-w-2xl mx-auto group">
-                            <div className="flex-1 w-full text-left px-2 md:px-3">
-                                <label className="flex items-center gap-2 text-[10px] font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest mb-1">
-                                    <MapPin size={12} className="text-primary" /> Destino
-                                </label>
-                                <div className="relative w-full">
-                                    <input
-                                        type="text"
-                                        value={searchQuery}
-                                        onChange={(e) => {
-                                            setSearchQuery(e.target.value);
-                                            setShowSuggestions(true);
-                                        }}
-                                        onFocus={() => setShowSuggestions(true)}
-                                        onBlur={() => {
-                                            // Small delay to allow clicking suggestions before hiding
-                                            setTimeout(() => setShowSuggestions(false), 200);
-                                        }}
-                                        placeholder="¿A qué departamento vas?"
-                                        className="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white font-bold text-sm md:text-base placeholder:text-slate-300 outline-none"
-                                    />
+                        <form onSubmit={handleSearch} className="bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl p-4 md:p-5 rounded-xl shadow-2xl flex flex-col gap-4 max-w-2xl mx-auto group">
 
-                                    {/* Autocomplete Dropdown */}
-                                    {showSuggestions && suggestions.length > 0 && (
-                                        <div className="absolute top-12 left-0 w-full bg-white dark:bg-slate-800 rounded-xl shadow-2xl border border-slate-100 dark:border-slate-700 overflow-hidden z-50 animate-fade-in">
-                                            {suggestions.map((dest) => (
-                                                <div
-                                                    key={dest.id}
-                                                    onClick={() => navigate(`/destination/${dest.id}`)}
-                                                    className="px-4 py-3 hover:bg-slate-50 dark:hover:bg-slate-700 cursor-pointer border-b border-slate-100 dark:border-slate-700 last:border-none flex items-center justify-between group"
-                                                >
-                                                    <div>
-                                                        <h4 className="text-sm font-bold text-slate-900 dark:text-white group-hover:text-primary transition-colors">{dest.name}</h4>
-                                                        <span className="text-xs text-slate-500 font-medium">{dest.department}</span>
-                                                    </div>
-                                                    <ArrowRight size={14} className="text-slate-300 group-hover:text-primary opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
+                            <div className="flex flex-col md:flex-row gap-3 md:gap-4 items-center w-full">
+                                <div className="flex-1 w-full text-left px-2 md:px-3">
+                                    <label className="flex items-center gap-2 text-[10px] font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest mb-1">
+                                        <MapPin size={12} className="text-primary" /> Destino o Experiencia
+                                    </label>
+                                    <div className="relative w-full">
+                                        <input
+                                            type="text"
+                                            value={searchQuery}
+                                            onChange={(e) => {
+                                                setSearchQuery(e.target.value);
+                                            }}
+                                            placeholder="Ej: Un lugar salado..."
+                                            className="w-full bg-transparent border-none focus:ring-0 text-slate-900 dark:text-white font-bold text-sm md:text-base placeholder:text-slate-300 outline-none"
+                                        />
+                                    </div>
                                 </div>
+                                <button type="submit" className="w-full md:w-auto btn-primary py-2.5 md:py-3 px-6 md:px-8 text-sm md:text-base whitespace-nowrap">
+                                    <Search size={18} className="md:w-[20px] md:h-[20px]" /> Buscar
+                                </button>
                             </div>
-                            <button type="submit" className="w-full md:w-auto btn-primary py-2.5 md:py-3 px-6 md:px-8 text-sm md:text-base">
-                                <Search size={18} className="md:w-[20px] md:h-[20px]" /> Buscar
-                            </button>
                         </form>
                     </motion.div>
                 </div>

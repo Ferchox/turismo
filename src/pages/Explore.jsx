@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Filter, Search as SearchIcon, MapPin, Star, ArrowRight, X } from 'lucide-react'
+import { Filter, Search as SearchIcon, MapPin, Star, ArrowRight, X, Sparkles, Loader2 } from 'lucide-react'
 import { destinations } from '../data/destinations'
+import { GoogleGenerativeAI } from '@google/generative-ai'
 
 const Explore = () => {
     const [searchParams] = useSearchParams()
@@ -14,6 +15,8 @@ const Explore = () => {
 
     const [selectedCategory, setSelectedCategory] = useState(normalizedInitial)
     const [searchQuery, setSearchQuery] = useState(initialQuery)
+    const [semanticLoading, setSemanticLoading] = useState(false)
+    const [semanticResultsIds, setSemanticResultsIds] = useState(null)
 
     // Synchronize with URL if it changes while on the page
     useEffect(() => {
@@ -32,23 +35,123 @@ const Explore = () => {
         }
     }, [searchParams])
 
+    // Perform semantic search
+    useEffect(() => {
+        const performSemanticSearch = async () => {
+            if (!searchQuery.trim()) {
+                setSemanticResultsIds(null);
+                setSemanticLoading(false);
+                return;
+            }
+
+            setSemanticLoading(true);
+            try {
+                const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+                if (!apiKey) {
+                    console.error('La clave de API de Gemini no está configurada.');
+                    setSemanticResultsIds(null);
+                    return;
+                }
+
+                const genAI = new GoogleGenerativeAI(apiKey);
+                const model = genAI.getGenerativeModel({
+                    model: 'gemini-2.5-flash',
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                    }
+                });
+
+                const destContext = destinations.map(d => ({
+                    id: d.id,
+                    name: d.name,
+                    category: d.category,
+                    department: d.department,
+                    tags: d.tags
+                }));
+
+                const prompt = `
+Eres el motor de búsqueda central de una plataforma de turismo en Bolivia.
+Esta es la lista total de destinos disponibles:
+${JSON.stringify(destContext)}
+
+La intención de búsqueda del usuario es: "${searchQuery}"
+
+INSTRUCCIONES CRÍTICAS:
+1. Analiza el concepto de la búsqueda y recomienda SOLAMENTE los destinos (ids) que tengan clara relación.
+2. Por ejemplo, si la búsqueda es de un concepto ("salado", "mojarse", "frío"), escoge los lugares que ofrezcan claramente esa experiencia (ej. salar-de-uyuni para salado).
+3. MUY IMPORTANTE: ¡NO RETORNES TODOS LOS DESTINOS! Si la búsqueda no tiene absoluta relación con ningún destino, REGLA DE ORO: retorna un arreglo vacío [].
+4. Tu respuesta debe ser EXCLUSIVAMENTE un arreglo JSON con los IDs válidos resultantes, ordenados de mayor a menor relevancia.
+Ejemplo: ["id1", "id2"]
+`;
+                const result = await model.generateContent(prompt);
+                const text = result.response.text();
+
+                try {
+                    const parsedIds = JSON.parse(text);
+                    if (Array.isArray(parsedIds)) {
+                        setSemanticResultsIds(parsedIds);
+                    } else {
+                        setSemanticResultsIds([]);
+                    }
+                } catch (e) {
+                    console.error("Error al estructurar JSON semántico:", e);
+                    setSemanticResultsIds([]);
+                }
+            } catch (error) {
+                console.error('Error en API NLP:', error);
+                setSemanticResultsIds(null);
+            } finally {
+                setSemanticLoading(false);
+            }
+        };
+
+        const debounceTimer = setTimeout(() => {
+            performSemanticSearch();
+        }, 500);
+
+        return () => clearTimeout(debounceTimer);
+    }, [searchQuery]);
+
     const categories = ['Todos', 'Naturaleza', 'Lago', 'Historia', 'Aventura', 'Ciudad', 'Transporte']
 
     const removeAccents = (str) => {
         return str ? str.normalize("NFD").replace(/[\u0300-\u036f]/g, "") : "";
     }
 
-    const filteredDestinations = destinations.filter(dest => {
+    let filteredDestinations = destinations.filter(dest => {
         const matchesCategory = selectedCategory === 'Todos' ||
             dest.category.toLowerCase() === selectedCategory.toLowerCase()
+
+        if (!searchQuery.trim()) {
+            return matchesCategory;
+        }
 
         const normalizedQuery = removeAccents(searchQuery.toLowerCase());
         const matchesSearch = removeAccents((dest.name || '').toLowerCase()).includes(normalizedQuery) ||
             removeAccents((dest.location || '').toLowerCase()).includes(normalizedQuery) ||
-            removeAccents((dest.department || '').toLowerCase()).includes(normalizedQuery)
+            removeAccents((dest.department || '').toLowerCase()).includes(normalizedQuery) ||
+            (dest.tags && dest.tags.some(t => removeAccents(t.toLowerCase()).includes(normalizedQuery)));
 
-        return matchesCategory && matchesSearch
+        if (semanticResultsIds !== null) {
+            const matchesSemantic = semanticResultsIds.includes(dest.id);
+            // Combinamos match de strings normal (matchesSearch) con NLP (matchesSemantic)
+            return matchesCategory && (matchesSearch || matchesSemantic);
+        }
+
+        return matchesCategory && matchesSearch;
     })
+
+    if (semanticResultsIds && semanticResultsIds.length > 0) {
+        filteredDestinations.sort((a, b) => {
+            const indexA = semanticResultsIds.indexOf(a.id);
+            const indexB = semanticResultsIds.indexOf(b.id);
+
+            if (indexA === -1 && indexB !== -1) return 1;
+            if (indexA !== -1 && indexB === -1) return -1;
+            if (indexA !== -1 && indexB !== -1) return indexA - indexB;
+            return 0;
+        });
+    }
 
     return (
         <div className="pt-32 pb-20 bg-background-light dark:bg-background-dark min-h-screen">
@@ -108,25 +211,38 @@ const Explore = () => {
 
                     {/* Main Content */}
                     <div className="flex-1">
-                        <div className="flex flex-col md:flex-row gap-6 mb-10">
-                            <div className="relative flex-1">
-                                <SearchIcon size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400" />
-                                <input
-                                    type="text"
-                                    placeholder="Buscar destinos, actividades..."
-                                    className="w-full pl-16 pr-6 py-5 bg-white dark:bg-slate-900 border border-primary/5 rounded-2xl focus:ring-2 focus:ring-primary shadow-sm font-medium"
-                                    value={searchQuery}
-                                    onChange={(e) => setSearchQuery(e.target.value)}
-                                />
+                        <div className="flex flex-col mb-10 gap-4">
+                            <div className="flex items-center gap-4 bg-primary/10 p-4 rounded-xl border border-primary/20">
+                                <div className="flex-1">
+                                    <h4 className="font-black text-sm text-slate-900 dark:text-white flex items-center gap-1.5"><Sparkles size={16} className="text-primary" /> Búsqueda Inteligente Integrada</h4>
+                                    <p className="text-xs text-slate-600 dark:text-slate-400">Nuestro buscador comprende tus intenciones. Puedes buscar por lugares exactos o por frases como "quiero mojarme salado" o "un lugar alto para volar".</p>
+                                </div>
                             </div>
-                            <div className="flex items-center gap-4 bg-white dark:bg-slate-900 px-6 py-5 rounded-2xl border border-primary/5 shadow-sm">
-                                <span className="text-sm font-bold text-slate-400 whitespace-nowrap">Ordenar por:</span>
-                                <select className="bg-transparent border-none focus:ring-0 font-bold text-slate-900 dark:text-white cursor-pointer min-w-[120px]">
-                                    <option>Popularidad</option>
-                                    <option>Precio: Bajo</option>
-                                    <option>Precio: Alto</option>
-                                    <option>Rating</option>
-                                </select>
+                            <div className="flex flex-col md:flex-row gap-6">
+                                <div className="relative flex-1">
+                                    <SearchIcon size={20} className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400" />
+                                    <input
+                                        type="text"
+                                        placeholder="Describe la experiencia que buscas..."
+                                        className="w-full pl-16 pr-6 py-5 bg-white dark:bg-slate-900 border border-primary/5 rounded-2xl focus:ring-2 focus:ring-primary shadow-sm font-medium"
+                                        value={searchQuery}
+                                        onChange={(e) => setSearchQuery(e.target.value)}
+                                    />
+                                    {semanticLoading && (
+                                        <div className="absolute right-6 top-1/2 -translate-y-1/2 text-primary animate-spin">
+                                            <Loader2 size={20} />
+                                        </div>
+                                    )}
+                                </div>
+                                <div className="flex items-center gap-4 bg-white dark:bg-slate-900 px-6 py-5 rounded-2xl border border-primary/5 shadow-sm">
+                                    <span className="text-sm font-bold text-slate-400 whitespace-nowrap">Ordenar por:</span>
+                                    <select className="bg-transparent border-none focus:ring-0 font-bold text-slate-900 dark:text-white cursor-pointer min-w-[120px]">
+                                        <option>Popularidad</option>
+                                        <option>Precio: Bajo</option>
+                                        <option>Precio: Alto</option>
+                                        <option>Rating</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
