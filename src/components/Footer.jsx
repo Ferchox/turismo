@@ -1,8 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { Facebook, Instagram, Twitter, Mail } from 'lucide-react'
+import { Facebook, Instagram, Twitter, Mail, Youtube, Linkedin } from 'lucide-react'
 
 const Footer = () => {
+    const socialLinks = [
+        { icon: Facebook, url: 'https://facebook.com/aventurabolivia', name: 'Facebook' },
+        { icon: Instagram, url: 'https://instagram.com/aventurabolivia', name: 'Instagram' },
+        { icon: Twitter, url: 'https://twitter.com/aventurabolivia', name: 'Twitter' },
+        { icon: Youtube, url: 'https://youtube.com/@aventurabolivia', name: 'Youtube' },
+        { icon: Linkedin, url: 'https://linkedin.com/company/aventurabolivia', name: 'Linkedin' },
+        { icon: Mail, url: 'mailto:aventura.bolivia@gmail.com', name: 'Email' }
+    ];
+
     return (
         <footer className="bg-slate-950 text-white pt-12 pb-8">
             <div className="max-w-7xl mx-auto px-6">
@@ -18,11 +27,14 @@ const Footer = () => {
                         </Link>
 
                         <div className="flex gap-4">
-                            {[Facebook, Instagram, Twitter, Mail].map((Icon, i) => (
-                                <a key={i} href="#" className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all">
-                                    <Icon size={18} />
-                                </a>
-                            ))}
+                            {socialLinks.map((social, i) => {
+                                const Icon = social.icon;
+                                return (
+                                    <a key={i} href={social.url} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="w-10 h-10 bg-slate-800 rounded-full flex items-center justify-center hover:bg-primary hover:text-slate-900 transition-all">
+                                        <Icon size={18} />
+                                    </a>
+                                );
+                            })}
                         </div>
                     </div>
 

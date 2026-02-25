@@ -150,16 +150,16 @@ const Home = () => {
                                         <span className="font-bold text-sm">{dest.rating}</span>
                                     </div>
                                 </div>
-                                <p className="text-slate-500 dark:text-slate-400 mb-4 line-clamp-2 leading-relaxed text-xs">
+                                <p className="text-slate-500 dark:text-slate-400 mb-4 line-clamp-2 leading-relaxed text-sm">
                                     {dest.shortDescription}
                                 </p>
                                 <div className="flex justify-between items-center pt-3 border-t border-slate-100 dark:border-slate-800">
-                                    <div className="flex items-center gap-2 text-slate-400 text-xs">
-                                        <MapPin size={12} className="text-primary" />
+                                    <div className="flex items-center gap-2 text-slate-400 text-sm">
+                                        <MapPin size={16} className="text-primary" />
                                         {dest.location}
                                     </div>
                                     <span className="text-xl font-black text-slate-900 dark:text-white">
-                                        ${dest.price} <span className="text-[10px] text-slate-400 font-normal">/persona</span>
+                                        ${dest.price} <span className="text-xs text-slate-400 font-normal">/persona</span>
                                     </span>
                                 </div>
                             </div>
@@ -221,7 +221,7 @@ const Home = () => {
                                         <span className="material-icons text-primary group-hover:text-white text-2xl">{item.icon}</span>
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-black mb-1">{item.title}</h4>
+                                        <h3 className="text-lg font-black mb-1">{item.title}</h3>
                                         <p className="text-slate-500 dark:text-slate-400 leading-relaxed font-medium text-sm">{item.desc}</p>
                                     </div>
                                 </div>
@@ -262,34 +262,34 @@ const Home = () => {
                         </div>
                         <div className="p-4 space-y-3">
                             <div>
-                                <h3 className="text-lg font-black mb-3">Información de Contacto</h3>
+                                <h3 className="text-lg font-black mb-4">Información de Contacto</h3>
                             </div>
-                            <div className="space-y-2">
-                                <div className="flex items-start gap-2 group">
-                                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-all">
-                                        <MapPin size={14} className="text-primary group-hover:text-slate-900 transition-colors" />
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-3 group px-1">
+                                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-all">
+                                        <MapPin size={18} className="text-primary group-hover:text-slate-900 transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-[10px] text-slate-500 dark:text-slate-400 mb-0.5">Dirección</h4>
-                                        <p className="font-bold text-slate-900 dark:text-white text-xs">Av. Rafael Pabón, Zona Irpavi<br />La Paz, Bolivia</p>
+                                        <h4 className="font-bold text-xs text-slate-500 dark:text-slate-400 mb-0.5">Dirección</h4>
+                                        <p className="font-bold text-slate-900 dark:text-white text-sm">Av. Rafael Pabón, Zona Irpavi<br />La Paz, Bolivia</p>
                                     </div>
                                 </div>
-                                <div className="flex items-start gap-2 group">
-                                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-all">
-                                        <Phone size={14} className="text-primary group-hover:text-slate-900 transition-colors" />
+                                <div className="flex items-start gap-3 group px-1">
+                                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-all">
+                                        <Phone size={18} className="text-primary group-hover:text-slate-900 transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-[10px] text-slate-500 dark:text-slate-400 mb-0.5">Teléfono</h4>
-                                        <a href="tel:+59170534180" className="font-bold text-slate-900 dark:text-white hover:text-primary transition-colors text-xs">+591 70534180</a>
+                                        <h4 className="font-bold text-xs text-slate-500 dark:text-slate-400 mb-0.5">Teléfono</h4>
+                                        <a href="tel:+59170534180" className="font-bold flex items-center min-h-[44px] text-slate-900 dark:text-white hover:text-primary transition-colors text-sm py-1">+591 70534180</a>
                                     </div>
                                 </div>
-                                <div className="flex items-start gap-2 group">
-                                    <div className="w-8 h-8 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-all">
-                                        <Mail size={14} className="text-primary group-hover:text-slate-900 transition-colors" />
+                                <div className="flex items-start gap-3 group px-1">
+                                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0 group-hover:bg-primary transition-all">
+                                        <Mail size={18} className="text-primary group-hover:text-slate-900 transition-colors" />
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-[10px] text-slate-500 dark:text-slate-400 mb-0.5">Correo Electrónico</h4>
-                                        <a href="mailto:aventura.bolivia@gmail.com" className="font-bold text-slate-900 dark:text-white hover:text-primary transition-colors text-xs">aventura.bolivia@gmail.com</a>
+                                        <h4 className="font-bold text-xs text-slate-500 dark:text-slate-400 mb-0.5">Correo Electrónico</h4>
+                                        <a href="mailto:aventura.bolivia@gmail.com" className="font-bold flex items-center min-h-[44px] text-slate-900 dark:text-white hover:text-primary transition-colors text-sm py-1">aventura.bolivia@gmail.com</a>
                                     </div>
                                 </div>
                             </div>
@@ -306,54 +306,67 @@ const Home = () => {
                         <h3 className="text-lg font-black mb-3">Envíanos tu Consulta</h3>
                         <form className="space-y-3">
                             <div>
-                                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">
                                     Nombre Completo
                                 </label>
                                 <input
                                     type="text"
                                     placeholder="Tu nombre completo"
-                                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium text-xs"
+                                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium text-sm"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">
                                     Correo Electrónico
                                 </label>
                                 <input
                                     type="email"
                                     placeholder="tu@email.com"
-                                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium text-xs"
+                                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium text-sm"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">
                                     Teléfono
                                 </label>
                                 <input
                                     type="tel"
                                     placeholder="+591 00000000"
-                                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium text-xs"
+                                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium text-sm"
                                     required
                                 />
                             </div>
                             <div>
-                                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
+                                <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">
                                     Consulta
                                 </label>
                                 <textarea
                                     rows="3"
                                     placeholder="Cuéntanos cómo podemos ayudarte..."
-                                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium resize-none text-xs"
+                                    className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all font-medium resize-none text-sm"
                                     required
                                 ></textarea>
                             </div>
-                            <button type="submit" className="w-full btn-primary py-2 text-xs">
-                                Enviar Consulta <ArrowRight size={16} />
+                            <button type="submit" className="w-full btn-primary py-3 text-sm min-h-[48px]">
+                                Enviar Consulta <ArrowRight size={18} />
                             </button>
                         </form>
                     </motion.div>
+                </div>
+            </section>
+
+            {/* SEO Text Block */}
+            <section className="bg-slate-900 text-white py-16 px-6">
+                <div className="max-w-4xl mx-auto text-center space-y-6">
+                    <h2 className="text-2xl font-black mb-4">Todo lo que necesitas saber antes de viajar a Bolivia</h2>
+                    <p className="text-slate-300 text-sm leading-relaxed">
+                        Bolivia es un país de una riqueza inigualable, y planificar tu viaje requiere conocer a profundidad cada destino. En nuestra guía turística de Aventura Bolivia, te proporcionamos la información esencial para que vivas la experiencia de forma segura y auténtica en el corazón de Sudamérica. Con nosotros encontrarás las mejores recomendaciones de hoteles, agencias de viaje, y mapas interactivos de los departamentos del país.
+                    </p>
+                    <p className="text-slate-300 text-sm leading-relaxed">
+                        Descubre actividades únicas como recorrer el Salar de Uyuni, navegar por el Amazonas, o maravillarte en el teleférico de La Paz. Nos enfocamos en ofrecerte consejos prácticos para tu aventura, transporte local, y actividades tanto para quienes buscan lujo como para mochileros. ¡Prepárate para explorar la magia ancestral y moderna de nuestra tierra con total confianza!
+                    </p>
                 </div>
             </section>
         </div>

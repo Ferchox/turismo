@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://turismo-self-two.vercel.app/sitemap.xml
